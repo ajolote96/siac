@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Falla de Energía Eléctrica</title>
+</head>
+
+<body>
+    <!-- Gracias -->
+    <div class="gracias">
+        <h2>Por favor, reuna los requisitos necesarios para poder atender su problema, ¡Muchas gracias por su visita!</h2>
+    </div>
+
+    <div class="falla">
+        <h2>¿Dónde se encuentra la falla de Energía Eléctrica?</h2>
+        <div class="falla-electrica">
+            <div>    
+                <img class ="face-ico" src="img/casa-falla.svg" alt="" name="domicilio" >           
+                <p>La falla se encuentra en mi domicilio</p>
+            </div>
+
+            <div>    
+                <img class="face-ico" src="img/colonia.svg" alt="" name="colonia">            
+                <p>La falla se encuentra en mi colonia</p>
+            </div>        
+        </div>
+    </div>
+
+    <div class="casa-falla container col-6 modal-content" style="display: none;">
+        <h2>¿Qué requiero para poder registrar este tipo de solicitud?</h2>
+        <br>
+        
+        <span>Antes de realizar una solicitud por falla eléctrica le recomendamos que cumpla con los siguientes requisitos:</span>
+        <br>
+        <br>
+        <ul>
+            <li>Tener un contrato vigente para el suministrode  energía  con  CFE  Suministrador  de  Servicios Básicos.</li>
+            <li>El  servicio  debe  estar  al  corriente  en  el  pago de sus recibos.</li>
+            <li>
+                Proporcionar alguna información que nos ayude a identificar tu servicio, puede ser cualquiera de los siguientes datos:
+                <ul>
+                    <li>número de servicio</li>
+                    <li>número   de cuenta</li>
+                    <li>número de medidor</li>
+                    <li>domicilio donde se presta el servicio</li>
+                    <li>nombre del cliente</li>
+                    <li>teléfono.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>¿Cumple con los requisitos?</h2>
+        <div class="button-confirm container">
+            <span class="btn btn-success">Sí</span>
+            <span class="btn btn-danger salir">No</span>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+   $('.face-ico').click(function () { 
+     
+     var fallaLugar = $(this).attr('name');
+     
+     if(fallaLugar == "domicilio"){
+           $('.casa-falla').fadeIn();
+          $('.falla').hide();
+     }      
+   });
+
+   $('.salir').click(function () { 
+        $(".gracias").fadeIn('slow');
+        $(".modal-content").hide();    
+
+        setTimeout(function() {                                       
+            location = 'matrix.html';
+        }, 7000); 
+    });
+       
+    
+</script>
+
+</html>

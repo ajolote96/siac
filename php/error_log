@@ -1,0 +1,27 @@
+[07-Jan-2020 20:19:43 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/conexion.php on line 2
+[07-Jan-2020 20:19:43 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 13
+[07-Jan-2020 20:19:43 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 14
+[07-Jan-2020 20:19:43 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 30
+[07-Jan-2020 20:19:43 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 33
+[07-Jan-2020 20:19:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 34
+[07-Jan-2020 20:26:23 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'ssbjalisco'@'localhost' (using password: YES) in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/conexion.php on line 2
+[07-Jan-2020 20:26:23 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 13
+[07-Jan-2020 20:26:23 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 14
+[07-Jan-2020 20:26:23 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 30
+[07-Jan-2020 20:26:23 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 33
+[07-Jan-2020 20:26:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 34
+[07-Jan-2020 20:26:25 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'ssbjalisco'@'localhost' (using password: YES) in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/conexion.php on line 2
+[07-Jan-2020 20:26:25 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 13
+[07-Jan-2020 20:26:25 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 14
+[07-Jan-2020 20:26:25 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 30
+[07-Jan-2020 20:26:25 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 33
+[07-Jan-2020 20:26:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/php/index.php on line 34

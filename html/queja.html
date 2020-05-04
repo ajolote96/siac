@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Queja</title>
+</head>
+<body>
+
+    <div class="container queja faces">
+        <div>
+            <img src="img/falla-electrica.svg" alt="" class="face-ico" name="falla-electrica" >
+            <p class="queja-ico-informacion">Falla de Energía Eléctrica (No Luz)</p>
+        </div>
+        
+        <div>
+            <img src="img/alto-consumo.svg" alt="" class="face-ico" name="alto-consumo">
+            <p class="queja-ico-informacion">Alto Consumo de Energía</p>
+        </div>
+    </div>
+    
+    <div class="container queja faces">
+        <div>
+            <img src="img/dañado.svg" alt="" class="face-ico" name="dañado">
+            <p class="queja-ico-informacion">Aparatos Dañados</p>
+        </div>
+
+        <!-- <div>
+            <img src="img/otro.svg" alt="" class="face-ico-principal">
+            <p class="queja-ico-informacion" style="text-align: center;">Otro</p>
+        </div> -->
+    </div>
+    <div class="falla-electrica"></div>
+
+</body>
+
+<script>
+    $('.face-ico').click(function () { 
+        
+        $('.faces').hide();
+        
+        var respuesta = $(this).attr('name');   
+               
+        if(respuesta == 'falla-electrica'){
+            $("#informacion-contrato").load("html/queja/falla-electrica.html");
+        } 
+        else if(respuesta == "alto-consumo"){
+            $("#informacion-contrato").load("html/queja/alto-consumo.html");
+        }
+        else 
+            $("#informacion-contrato").load("html/queja/aparato-dañado.html");
+    
+    
+   });
+
+</script>
+</html>

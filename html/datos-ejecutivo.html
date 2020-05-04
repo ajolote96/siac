@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+       .obtener-datos{
+           margin-top: 5%;
+       }
+
+       .date{
+           padding: 0;
+           display: flex;
+           justify-content: flex-start;
+       }
+
+       .date input{
+           margin-right: 10%;
+       }
+    
+    </style>
+</head>
+<body>
+
+    
+<div class="container obtener-datos">
+    <form action="" method="POST" name="tablafrm" id="tablafrm">
+        <div class="form-group" id="cac-seleccion">
+            <select name="cac" id="cac" class="form-control" required>
+                <option value="" selected disabled>-- Elije el CAC --</option>
+                <option value="camichines">Camichines</option name="camichines">
+                <option value="paradero">Paradero</option name="paradero">
+                <option value="revolucion">Revolucion</option  name="revolucion">
+                <option value="santa fe">Santa fe</option name="santa fe">
+                <option value="tlaquepaque">Tlaquepaque</option name="tlaquepaque">
+                <option value="toluquilla">Toluquilla</option name="toluquilla">
+                <option value="tonala">Tonalá</option name="tonala">
+            </select>
+        </div>
+        <div class="form-group date container">
+            <div>
+                <label for="fecha-inicio">Inicio: </label>
+                <input type="date" name="fecha-inicio" id="fecha-inicio">
+            </div>
+           
+            <div>
+                <label for="fecha-fin">Fin: </label>
+                <input type="date" name="fecha-fin" id="fecha-fin">
+            </div>    
+        </div>
+        
+        <input type="button" value="Mostrar Tabla" class="btn-lg btn-block btn-success" id="send-tabla">
+        
+    </form>
+</div>
+
+<div id="contenedor"></div>
+
+</body>
+
+<script src="js/jquery.js"></script>
+
+<script>
+        $('#send-tabla').click(function(){
+            $.ajax({
+                type: "POST",
+                url: "php/evaluar-ejecutivos.php",
+                data: $('#tablafrm').serialize(),                
+                success: function (response) {
+                    $('#tablafrm').hide();
+                    $('#contenedor').html(response);
+                }
+            });
+        });
+</script>
+
+</html>

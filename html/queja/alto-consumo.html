@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Alto Consumo de Energía</title>
+</head>
+
+<body>
+
+     <!-- Gracias -->
+     <div class="gracias">
+        <h2>Le sugerimos que obtenga el título del servicio para poder atender su petición, ¡Muchas gracias por su visita!</h2>
+    </div>
+
+
+    <div class="contenedor">
+        <h2>¿Es usted el titular del Servicio?</h2>
+        <div class="alto-consumo">
+            <div>    
+                <img class ="face-ico" src="img/si.png" alt="">           
+                <p class="btn btn-block btn-success">sí</p>
+            </div>
+
+            <div class="salir">    
+                <img class="face-ico" src="img/no.png" alt="">            
+                <p class="btn btn-block btn-danger">no</p>
+            </div>        
+        </div>
+    </div>
+</body>
+
+<script>
+    
+    $('.salir').click(function () { 
+        $(".gracias").fadeIn('slow');
+        $(".contenedor").hide();    
+
+        setTimeout(function() {                                       
+            location = 'matrix.html';
+        }, 6000); 
+    });
+</script>
+
+</html>

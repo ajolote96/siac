@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="static/css/index.css"> -->
+    <title>Contrato</title>
+
+</head>
+
+<body class="container">
+
+    
+<div class="gracias">
+    <h2>Gracias</h2>
+</div>
+
+
+<!-- Casa -->
+<div class="casa container col-6 modal-content">
+   
+    <h2>¿Cumple con los siguientes requisitos?</h2>
+    <br>
+    
+    <span>Antes de contratar un servicio eléctrico es necesario contar con los siguientes documentos:</span>
+    <br>
+    <br>
+    <ul>
+        <li>Nombre completo presentando una identificación oficial</li> 
+        <li>Dirección (calle, número exterior/ interior, colonia, municipio, estado, código postal) donde se prestará el servicio, especificando las entrecalles.​</li> 
+        <li>Registro Federal de Contribuyentes(RFC).</li> 
+        <li>Teléfono y correo electrónico.</li> 
+        <li>En  caso  de  ser  representado  por  un  tercero,  el  representante  debe  entregar  una  carta  poder  simple  o  notariada  e  identificaciones oficiales de ambos.</li> 
+        <li>En caso de contratarse el servicio a nombre de una persona moral, deberá presentar adicionalmente el acta constitutiva en original (para cotejo) y copia simple; así como la documentación que acredite la representación del solicitante.</li>
+    </ul>
+    
+
+    <div class="button-confirm container">
+        <span class="btn btn-success">Sí</span>
+        <span class="btn btn-danger" onclick="casa_no();">No</span>
+    </div>
+    
+</div>
+
+<div class="casa-correo container col-4 modal-content">
+    <form action="" method="post" class="formulario" id="casa">
+        <h2>¿Desea que le mandemos los requisitos a un correo electrónico?</h2>
+       
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Nombre</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre" id="nombre">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Correo @</span>
+            </div>
+            <input type="email" class="form-control" placeholder="Correo" aria-label="Username" aria-describedby="basic-addon1" name="correo" id="correo">
+        </div>
+       
+        <div class="form-group">
+            
+            <input type="button" value="Enviar" name="casa" id="btn-casa" class="btn btn-block btn-success">
+        </div>
+               
+    </form>  
+   
+    <h2>Si no, presione salir</h2>
+
+    <div class="form-group">
+        <span class="btn btn-block btn-danger salir">Salir</span>
+    </div>  
+</div>
+
+<!-- Negocio -->
+<div class="negocio container col-8 modal-content">
+    <h2>¿Cumple con los siguientes requisitos?</h2>
+    <br>
+    <span>    Antes de contratar un servicio eléctrico para negocio es necesario contar con lo siguiente:    </span>
+    <br>
+    <br>
+    <ul>
+        <li>Necesitas realizar un estudio técnico de factibilidad para el servicio que solicitas. Para ello necesitarás la siguiente documentación </li>
+            <ul>
+                <li>Identificación oficial.</li>
+                <li>Croquis de la ubicación en donde se solicita el servicio.</li>
+                <li>Listado de equipos y aparatos a conectar.</li>
+                <li>Documento oficial de alineación.</li>
+                <li>Carta poder notariada (personas morales).</li>
+            </ul>
+        <li>Información  o  documentación  necesito  para realizar mi contratación</li> 
+        <p>Una vez que el área técnica haya emitido el oficio de autorización   de   contratación   al   Suministrador   deberás  presentarte  en  el  Centro  de  Atención  a  Clientes con la siguiente documentación:</p>
+            <ul>
+                <li>
+                    Persona Física
+                    <ul>
+                        <li>Nombre completo presentando identificación oficial</li>
+                        <li>Dirección completa, especificando entrecalles.</li>
+                        <li>RFC, CURP, teléfono y correo electrónico.</li>
+                        <li>Giro o actividad y pago del depósito en garantía.</li>
+                        <li>Dictamen de la Unidad de Verificación de Instalaciones Eléctricas (UVIE) emitido por la SENER.</li>
+                    </ul>
+                </li>
+                <li>
+                    Persona Moral
+                    <ul>
+                        <li>Copia del acta constitutiva notariada y la documentación que acredite la representación del solicitante.</li>
+                        <li>Copia de la identificación oficial del representante.</li>
+                        <li>Dirección completa, especificando entrecalles.</li>
+                        <li>RFC, teléfono y correo electrónico.</li>
+                        <li>Giro o actividad y pago del depósito en garantía.</li>
+                        <li>Dictamen de la Unidad de Verificación de Instalaciones Eléctricas (UVIE) emitido por la SENER.</li>
+                    </ul>
+                </li>                
+            </ul>
+    </ul>
+
+    <div class="button-confirm container">
+        <span class="btn btn-success">Sí</span>
+        <span class="btn btn-danger" onclick="negocio_no();">No</span>
+    </div>
+    
+</div>
+
+
+<div class="negocio-correo container col-4 modal-content">
+    <form action="" method="post" class="formulario" id="negocio">
+        <h2>¿Desea que le mandemos los requisitos a un correo electrónico?</h2>
+       
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Nombre</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Correo @</span>
+            </div>
+            <input type="email" class="form-control" placeholder="Correo" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+       
+        <div class="form-group">
+            <input type="button" value="Enviar" name="negocio" id="btn-negocio" name="negocio" class="btn btn-block btn-success boton">
+        </div>
+       
+    </form>   
+    
+    <h2>Si no, presione salir</h2>
+
+    <div class="form-group">
+        <span class="btn btn-block btn-danger salir">Salir</span>
+    </div>  
+</div>
+
+<!-- Industria -->
+<div class="industria container col-6 modal-content">
+    <h2>¿Cumple con los siguientes requisitos?</h2>
+    <br>
+    <span>    Antes de contratar un servicio eléctrico para negocio es necesario contar con lo siguiente:    </span>
+    <br>
+    <br>
+    <ul>
+        <li>Necesitas realizar un estudio técnico de factibilidad para el servicio que solicitas. Para ello necesitarás la siguiente documentación </li>
+            <ul>
+                <li>Identificación oficial.</li>
+                <li>Croquis de la ubicación en donde se solicita el servicio.</li>
+                <li>Listado de equipos y aparatos a conectar.</li>
+                <li>Documento oficial de alineación.</li>
+                <li>Carta poder notariada (personas morales).</li>
+            </ul>
+        <li>Información  o  documentación  necesito  para realizar mi contratación</li> 
+        <p>Una vez que el área técnica haya emitido el oficio de autorización   de   contratación   al   Suministrador   deberás  presentarte  en  el  Centro  de  Atención  a  Clientes con la siguiente documentación:</p>
+            <ul>
+                <li>
+                    Persona Física
+                    <ul>
+                        <li>Nombre completo presentando identificación oficial</li>
+                        <li>Dirección completa, especificando entrecalles.</li>
+                        <li>RFC, CURP, teléfono y correo electrónico.</li>
+                        <li>Giro o actividad y pago del depósito en garantía.</li>
+                        <li>Dictamen de la Unidad de Verificación de Instalaciones Eléctricas (UVIE) emitido por la SENER.</li>
+                    </ul>
+                </li>
+                <li>
+                    Persona Moral
+                    <ul>
+                        <li>Copia del acta constitutiva notariada y la documentación que acredite la representación del solicitante.</li>
+                        <li>Copia de la identificación oficial del representante.</li>
+                        <li>Dirección completa, especificando entrecalles.</li>
+                        <li>RFC, teléfono y correo electrónico.</li>
+                        <li>Giro o actividad y pago del depósito en garantía.</li>
+                        <li>Dictamen de la Unidad de Verificación de Instalaciones Eléctricas (UVIE) emitido por la SENER.</li>
+                    </ul>
+                </li>                
+            </ul>
+    </ul>
+    <div class="button-confirm container">
+        <span class="btn btn-success btn-lg">Sí</span>
+        <span class="btn btn-danger btn-lg" onclick="industria_no();">No</span>
+    </div>
+    
+</div>
+
+
+<div class="industria-correo container col-4 modal-content">
+    <form action="" method="post" class="formulario" id="industria">
+        <h2>¿Desea que le mandemos los requisitos a un correo electrónico?</h2>
+       
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Nombre</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre" id="nombre">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Correo @</span>
+            </div>
+            <input type="email" class="form-control" placeholder="Correo" aria-label="Username" aria-describedby="basic-addon1" name="correo" id="correo" >
+        </div>
+       
+        <div class="form-group">
+            <input type="button" value="Enviar" name="industria" id="btn-industria" class="btn btn-block btn-success boton">
+        </div>
+
+    </form>  
+    
+   
+    <h2>Si no, presione salir</h2>
+
+    <div class="form-group">
+        <span class="btn btn-block btn-danger salir">Salir</span>
+    </div>  
+</div>
+
+<div class="lugar">
+    
+    <h2>Selecciona el lugar donde necesite un contrato</h2>
+
+    <div class="requisitos">
+        <div onclick="casa();">
+            <img src="img/casa.svg" class="face-ico">
+            <h2>Casa Habitación</h2>
+        </div>
+
+        <div onclick="negocio();">
+            <img src="img/negocio.png" class="face-ico" alt="">
+            <h2>Negocio</h2>
+        </div>
+
+        <div onclick="industria();">
+            <img src="img/industria.png" class="face-ico" alt="">
+            <h2>Industria</h2>
+        </div>  
+    </div>
+</div>
+
+<footer hidden>
+    Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+</footer>
+</body>
+
+<script src="js/jquery.js"></script>
+<script src="js/enviar-correo.js"></script>
+<script>
+
+
+    function casa(){
+        $(".lugar").hide(); 
+        $(".casa").fadeIn('slow');
+    }
+
+    function negocio(){
+        $(".negocio").fadeIn('slow');
+        $(".lugar").hide();
+    }
+
+    function industria(){
+        $(".industria").fadeIn('slow');
+        $(".lugar").hide();
+    }
+
+   function casa_no(){
+       $(".casa-correo").fadeIn();  
+       $(".casa").hide();
+    }
+
+   function negocio_no(){
+       $(".negocio-correo").fadeIn();
+       $(".negocio").hide();
+    }
+
+    function industria_no(){
+        $(".industria-correo").fadeIn();
+        $(".industria").hide();
+    }
+    
+    $('.salir').click(function () { 
+        $(".gracias").fadeIn('slow');
+        $(".modal-content").hide();    
+
+        setTimeout(function() {                                       
+            location = 'matrix.html';
+        }, 3000); 
+    });
+</script>
+</html>

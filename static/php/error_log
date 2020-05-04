@@ -1,0 +1,52 @@
+[13-Jan-2020 19:47:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:8
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 8
+[13-Jan-2020 19:47:55 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:8
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 8
+[13-Jan-2020 19:47:56 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:8
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 8
+[13-Jan-2020 19:49:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:8
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 8
+[13-Jan-2020 19:53:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:8
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 8
+[13-Jan-2020 19:58:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:9
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 9
+[13-Jan-2020 19:58:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:9
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 9
+[13-Jan-2020 19:58:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:9
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 9
+[15-Jan-2020 14:19:42 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:9
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 9
+[15-Jan-2020 14:19:49 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:9
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 9
+[15-Jan-2020 14:19:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:9
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 9
+[15-Jan-2020 16:23:49 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 108
+[15-Jan-2020 16:24:17 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 108
+[15-Jan-2020 16:24:18 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 108
+[15-Jan-2020 16:24:50 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 108
+[12-Mar-2020 10:14:32 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php:48
+Stack trace:
+#0 {main}
+  thrown in /home4/ssbjaliscocom/cfecontigo.ssbjalisco.com.mx/static/php/login.php on line 48

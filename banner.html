@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Gayathri:700&display=swap" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <title>CFE</title>
+    <script>
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        contador();
+    });
+    
+        var cont=0;
+        var arreglo=["Bienvenido al Centro de Atención a Clientes", "¿Sabías que puedes pagar mediante la aplicación  CFE contigo?", "¿Sabías que puedes pagar con tarjeta de crédito tus avisos de recibo? Pregúntame Como"];
+    
+        function contador(){
+            if(cont==3)
+            {
+                cont=0;
+            }
+    
+            var contador = document.getElementById("titulo");
+            contador.innerHTML = arreglo[cont];
+            cont++;
+        }
+        setInterval('contador()',4300);
+    </script>
+</head>
+<body>
+
+    <section class="banner">        
+        <div class="banner-content">                            
+            <span class="blink_me" id="rotate">
+
+                <h1 id="titulo"></h1>
+               
+            </span> 
+            <a href="encuesta.php">Iniciar Encuesta</a>
+        </div>
+    </section>
+
+        
+    
+</body>
+</html>
