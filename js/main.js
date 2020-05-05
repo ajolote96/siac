@@ -28,7 +28,7 @@ function cargar_pregunta() {
                 }, 2000);
 
                 setTimeout(function(){
-                location = '../banner.html';
+                location = 'banner.html';
                 }, 2500);
             }
             else{
