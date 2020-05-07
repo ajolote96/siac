@@ -38,7 +38,7 @@
 
     <header class="container">
         <div>
-            <a href="index.php">
+            <a href="admin.php">
                 <img src="img/cfe-contigo.jpg" alt="Logo CFE contigo" class="float-left logo-cfe-contigo">
             </a>
             <img src="img/suterm-logo.png" alt="Logo Suterm" class="float-right suterm-logo">
@@ -106,7 +106,7 @@
     
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
 
     <script>
         $(document).on('click', '#tabla', function(){
