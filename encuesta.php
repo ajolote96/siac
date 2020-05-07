@@ -33,7 +33,7 @@
     <header class="container">
         <div>
             <a href="index.php">
-                <img src="img/cfe-contigo.jpg" alt="Logo CFE contigo" class="float-left logo-cfe-contigo">
+                <img src="img/cfe-contigo.png" alt="Logo CFE contigo" class="float-left logo-cfe-contigo">
             </a>
             <img src="img/suterm-logo.png" alt="Logo Suterm" class="float-right suterm-logo">
         </div>
