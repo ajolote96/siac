@@ -32,10 +32,10 @@
                             <th>Fecha</td>
                             <th>CAC</td>
                             <th>Motivo</td>
-                            <th><img src='../img/great.png' class='ico-table'></td>
-                            <th><img src='../img/good.png' class='ico-table'></td>
-                            <th><img src='../img/ok.png' class='ico-table'></td>
-                            <th><img src='../img/bad.png' class='ico-table'></td>
+                            <th><img src='img/great.png' class='ico-table'></td>
+                            <th><img src='img/good.png' class='ico-table'></td>
+                            <th><img src='img/ok.png' class='ico-table'></td>
+                            <th><img src='img/bad.png' class='ico-table'></td>
                         </tr>
                     </thead>
                 <tbody>";

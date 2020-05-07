@@ -3,7 +3,7 @@
     
     if(isset($_SESSION['rpe'])):
         if($_SESSION['rpe']=="admin"){
-            header("Location: admin.php");
+            header("Location: admin.ph  p");
         }
         else if($_SESSION['rpe']=="matrix"){
             header("Location: matrix.html");

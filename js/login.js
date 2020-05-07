@@ -1,7 +1,7 @@
 jQuery(document).on('submit', '#formlg', function(event) {
     event.preventDefault();
     jQuery.ajax({
-            url: '../static/php/login.php',
+            url: 'static/php/login.php',
             type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
@@ -13,11 +13,11 @@ jQuery(document).on('submit', '#formlg', function(event) {
             console.log(respuesta);
             if (!respuesta.error) {
                 if (respuesta.tipo == 'admin') {
-                    location = '../admin.php';
+                    location = 'admin.php';
                 } else if(respuesta.tipo == 'matrix') {
-                    location = '../matrix.html';
+                    location = 'matrix.html';
                 } else{
-                    location = '../banner.html';
+                    location = 'banner.html';
                 }
             } else {
                 $('.error').slideDown('slow');

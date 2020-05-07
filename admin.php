@@ -2,14 +2,16 @@
 <?php
     session_start();
 
-     if($_SESSION['rpe'] == "matrix"){
-            header("Location: matrix.html");
-     }
-        else if($_SESSION['rpe'] != "admin" && $_SESSION['rpe'] !="matrix"){
-            header("Location: encuesta.php");
-        }
-    else
+    if($_SESSION['rpe'] == "matrix"){
+        header("Location: matrix.html");
+    }
+    else if($_SESSION['rpe'] != "admin" && $_SESSION['rpe'] !="matrix"){
+        header("Location: encuesta.php");
+    }
+    else if($_SESSION['rpe'] != "admin"){
         header("Location: index.php");   
+    }
+        
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +38,7 @@
 
     <header class="container">
         <div>
-            <a href="index.html">
+            <a href="index.php">
                 <img src="img/cfe-contigo.jpg" alt="Logo CFE contigo" class="float-left logo-cfe-contigo">
             </a>
             <img src="img/suterm-logo.png" alt="Logo Suterm" class="float-right suterm-logo">
