@@ -8,16 +8,18 @@
         $conexion->set_charset('utf8');
 
         $user = $conexion->real_escape_string($_POST['username']);
-        $contraseña = $conexion->real_escape_string($_POST['password']);                
+        $contraseña = $conexion->real_escape_string($_POST['password']);     
+        $cac = $_POST['cac'];           
 
         if($nueva_consulta = $conexion->prepare("SELECT * FROM usuario WHERE rpe = ? AND contraseña = ?")){
             $nueva_consulta->bind_param('ss', $user, $contraseña);
             $nueva_consulta->execute();
             $resultado = $nueva_consulta->get_result();
 
-            if($resultado->num_rows==1 && $user == "admin"):
+            if($resultado->num_rows==1 && ($user == "admin" || $user == "adminzona" || $user == "admindivision")):
                 $filas = $resultado->fetch_assoc();
-                $_SESSION['rpe'] = $user;        
+                $_SESSION['rpe'] = $user;    
+                $_SESSION['cac'] = $cac;    
                 echo json_encode(array('error'=> false, 'tipo'=> $filas['rpe']));  
                 exit(0);     
             endif;
@@ -32,7 +34,6 @@
 
             if($resultado->num_rows == 1){
                 $filas = $resultado->fetch_assoc();
-                $cac = $_POST['cac'];
                 $update = $conexion->query("UPDATE ejecutivo SET puesto_laboral = '".$cac."' WHERE rpe = '".$filas['rpe']."'");
                 $_SESSION['rpe'] = $user;
                 $_SESSION['cac'] = $cac;

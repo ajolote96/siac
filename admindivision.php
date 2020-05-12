@@ -11,8 +11,7 @@
     else if($_SESSION['rpe'] != "admin" && $_SESSION['rpe'] != "adminzona" && $_SESSION['rpe'] != "admindivision"){
         header("Location: index.php");   
     }
-        
-        
+          
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +31,7 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>   
 
-    <title>Admin CAC</title>
+    <title>Admin División</title>
 </head>
 
 <body>

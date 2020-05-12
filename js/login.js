@@ -14,7 +14,14 @@ jQuery(document).on('submit', '#formlg', function(event) {
             if (!respuesta.error) {
                 if (respuesta.tipo == 'admin') {
                     location = 'admin.php';
-                } else if(respuesta.tipo == 'matrix') {
+                } 
+                else if(respuesta.tipo == 'adminzona'){
+                    location = 'adminzona.php';
+                }
+                else if(respuesta.tipo == 'admindivision'){
+                    location = 'admindivision.php';
+                }              
+                else if(respuesta.tipo == 'matrix') {
                     location = 'matrix.html';
                 } else{
                     location = 'banner.html';
