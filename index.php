@@ -103,7 +103,7 @@
             opcion[i] = document.getElementById(i+1);
         }            
 
-        if (usuario.value == "" || usuario.value == null || usuario.value == "matrix") {
+        if (usuario.value == "" || usuario.value == null) {
             cac.disabled = true;
         } else {
             cac.disabled = false;
@@ -223,7 +223,7 @@
             }
 
         }
-        else if(usuario.value == "admin"){
+        else if(usuario.value == "admin" || usuario.value == "matrix"){
             
             opcionmenu.label = "-- Elija CAC --";
 
