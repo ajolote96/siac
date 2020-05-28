@@ -338,9 +338,7 @@ width: 80%;
     background-position: center;
     transition: all .01s ease-in-out;
     background-image: url('../img/banner/01.jpg');
-    animation: banner 13s infinite linear;
-
-
+    animation: banner 12870ms infinite linear;
 }
 
 .banner-content{
