@@ -33,9 +33,9 @@
     <header class="container">
         <div>
             <a href="index.php">
-                <img src="img/cfe-contigo.png" alt="Logo CFE contigo" class="float-left logo-cfe-contigo">
+                <img src="img/cfe-contigo.png" alt="Logo CFE contigo" class="centrar float-left logo-cfe-contigo">
             </a>
-            <img src="img/suterm-logo.png" alt="Logo Suterm" class="float-right suterm-logo">
+            
         </div>
     </header>
     
@@ -76,24 +76,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-    <!-- <script src="js/pregunta-principal.js"></script> -->
-   
-    <script>
-        
-        // $(document).ready(function(){
-        //     $('#encuesta').load('pregunta.html');
-        // });
-
-        // $(document).on('click', '.face-ico-principal', function() {
-
-        //     document.getElementById('encuesta').style.display="none";
-        //     document.getElementById('container-pregunta').style.display="inline";
-        
-        // });
-
-    </script>
-
-
 
 
 </html

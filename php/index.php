@@ -5,7 +5,7 @@
 
     if(isset($_SESSION['counter'])){
         
-        if($_SESSION['counter']==3){                    
+        if($_SESSION['counter']==4){                    
             $_SESSION['counter']=1; 
             echo "exit";           
             exit(0);              
