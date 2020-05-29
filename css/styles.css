@@ -228,7 +228,7 @@ width: 80%;
     margin: 0;
     padding: 1rem;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     transition: .3s;
 }
 
