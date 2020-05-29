@@ -73,8 +73,8 @@
         </div>
 
         
-        <footer class="site-footer seccion" >
-            <a class="cerrar-sesion" href="static/php/cerrar-sesion.php" >Cerrar Sesión</a>
+        <footer class="site-footer seccion" onmouseover="mostrar();" onmouseout="ocultar();">
+            <a class="cerrar-sesion" style="display: none;" href="static/php/cerrar-sesion.php" >Cerrar Sesión</a>
         </footer>
     </div>
 </body>
@@ -105,6 +105,14 @@
     
 
    });
+
+   function mostrar(){
+    $(".cerrar-sesion").show();
+   }
+
+   function ocultar(){
+    $(".cerrar-sesion").hide();
+   }
 
 </script>
 
