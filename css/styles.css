@@ -32,6 +32,15 @@ a{
     text-decoration:none;    
 }
 
+/*ICONO REGRESAR*/
+.ico{
+    max-width: 10%;
+}
+.ico-regresar{
+    display: flex;
+    justify-content: center;
+}
+
 .suterm-logo {
     max-height: 100px;
     margin-top: 10px;

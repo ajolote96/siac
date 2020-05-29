@@ -33,18 +33,25 @@
 <body>
     <div class="background-color">
         <header class="logo-back" >
-            <div >
+            <div>
                 <a href="matrix.html">
                     <img src="img/cfe-contigo.png" alt="Logo CFE contigo" class="float-left logo-cfe-contigo">
                 </a>
+               
                 <!-- <img src="img/suterm-logo.png" alt="Logo Suterm" class="float-right suterm-logo"> -->
             </div>
+            
         </header>
+
+        <a href="matrix.html">
+            <img src="img/regresar.png" alt="Regresar" class="ico float-right" style="display: none;">            
+        </a>
         
         <div class="" id="informacion-contrato"></div>
-
-        <div class="container" id="faces-preguntas">
+        
             
+        <div class="container" id="faces-preguntas">
+                       
             <h2 style="margin-bottom: 50px;">¿Cuál es el motivo de su visita?</h2>
 
             <div class="faces">            
@@ -85,7 +92,7 @@
     
     $('#faces-preguntas').hide();
     var respuesta = $(this).attr('name');   
-    
+    $('.ico').show();
 
     if(respuesta == "contrato"){
         $("#informacion-contrato").load("html/contrato.html");
