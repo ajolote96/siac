@@ -321,12 +321,12 @@ width: 80%;
     display: none;
 }
 
-/*SPAN GRACIAS*/
+/*SPAN GENERAR TURNO*/
 
-.thanks {
+.generar-turno {
     background-color: rgba(197, 195, 195, 0.541);
     position: absolute;
-    margin-top: 20%;
+    margin-top: 10%;
     padding: 10px 0;
     border-radius: 0 0 5px 5px;
     color: #fff;
@@ -583,9 +583,9 @@ width: 80%;
 
   /*Gracias*/
 
-  .gracias{
+  /* .gracias{
       color: white;
       display: none;
       background-color: rgba(159, 168, 164, 0.459);
       padding: 3rem;
-  }
+  } */
