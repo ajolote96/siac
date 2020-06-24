@@ -31,6 +31,11 @@
 </head>
  
 <body>
+
+    <div class="generar-turno">
+        <h3>TURNO GENERADO</h3>
+    </div>
+    
     <div class="background-color">
         <header class="logo-back" >
             <div>
@@ -106,7 +111,12 @@
 
     }
     else{
-        $("#informacion-contrato").load("html/informacion.html");
+        $(".generar-turno").fadeIn('slow');
+        $(".lugar").hide();    
+
+        setTimeout(function() {                                       
+            location = 'matrix.html';
+        }, 3000); 
     }
     // document.getElementById("informacion").innerHTML = "Hola";
     

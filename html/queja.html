@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Queja</title>
 </head>
-<body>
+<body>    
 
     <div class="container queja faces">
         <div>
@@ -37,23 +37,31 @@
 </body>
 
 <script>
-    $('.face-ico').click(function () { 
+//     $('.face-ico').click(function () { 
         
-        $('.faces').hide();
+//         $('.faces').hide();
         
-        var respuesta = $(this).attr('name');   
+//         var respuesta = $(this).attr('name');   
                
-        if(respuesta == 'falla-electrica'){
-            $("#informacion-contrato").load("html/queja/falla-electrica.html");
-        } 
-        else if(respuesta == "alto-consumo"){
-            $("#informacion-contrato").load("html/queja/alto-consumo.html");
-        }
-        else 
-            $("#informacion-contrato").load("html/queja/aparato-dañado.html");
+//         if(respuesta == 'falla-electrica'){
+//             $("#informacion-contrato").load("html/queja/falla-electrica.html");
+//         } 
+//         else if(respuesta == "alto-consumo"){
+//             $("#informacion-contrato").load("html/queja/alto-consumo.html");
+//         }
+//         else 
+//             $("#informacion-contrato").load("html/queja/aparato-dañado.html");
     
     
-   });
+//    });
+$('.face-ico').click(function () { 
+        $(".generar-turno").fadeIn('slow');
+        $(".queja").hide();    
+
+        setTimeout(function() {                                       
+            location = 'matrix.html';
+        }, 3000); 
+    });
 
 </script>
 </html>
