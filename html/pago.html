@@ -4,33 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <title>Pago</title>
 </head>
 
 <body>
+
+    
+    <div class="generar-turno">
+        <h3>TURNO GENERADO</h3>
+    </div>
+
+    <div class="instrucciones">
+        <h3>por favor, diríjase al cfemático que se encuentra en estas inslataciones para realizar su pago, muchas gracias por su visita!</h3>
+    </div>
+
     <div class="pago">
         <div>    
-            <img class ="face-ico" src="img/cajero-automatico.svg" alt="">
-            <h2>CFEMático</h2>
-            <p>(Tarjeta de Crédito o Débito), Efectivo</p>
-
+            <img class ="face-ico" src="img/tarjeta.png" alt="" name="tarjeta" >
+            <h2>Tarjeta de Crédito</h2>            
         </div>
 
         <div>    
-            <img class="face-ico" src="img/ejecutivo.svg" alt="">
-            <h2>Ejecutivo</h2>
-            <p>(Tarjeta de Crédito o Débito)</p>
+            <img class="face-ico" src="img/cheque.png" alt="" name="cheque">
+            <h2>Cheque Certificado</h2>
         </div>   
 
         <div>    
-            <img class ="face-ico" src="img/cajero-automatico.svg" alt="">
-            <h2>CFEMático</h2>
-            <p>(Tarjeta de Crédito o Débito), Efectivo</p>
-
+            <img class ="face-ico" src="img/efectivo.png" alt="" name="efectivo">
+            <h2>Efectivo</h2>
         </div>
 
     </div>
 
+    <div class="modo-pago" style="display: none;">
+        <div id="ejecutivo">
+            <img  class="modo-pago-ico" src="img/ejecutivo.svg" alt="Icono Ejecutivo" name="ejecutivo">
+            <h2>Ejecutivo</h2>
+        </div>
+
+        <div id="cfematico">
+            <img  class="modo-pago-ico" src="img/cfematico.png" alt="Icono CFEMático" name="cfematico">
+            <h2>CFEMático</h2>
+        </div>
+    </div>
+
 </body>
+
+<script>
+
+    
+
+     $('.modo-pago-ico').click(function () { 
+
+        var tipo = $(this).attr('name');
+
+        if(tipo == "ejecutivo"){
+            $(".generar-turno").fadeIn('slow');
+            $(".modo-pago").hide();    
+        } else{
+            $(".instrucciones").fadeIn('slow');
+            $(".modo-pago").hide(); 
+        }
+        
+
+        setTimeout(function() {                                       
+            location = 'matrix.html';
+        }, 5000); 
+    });
+
+    $('.face-ico').click(function(){
+
+        var modoPago = $(this).attr('name');
+        console.log(modoPago);
+        $('.pago').hide();
+        if(modoPago == "tarjeta"){
+            $('.modo-pago').fadeIn('slow');
+        }
+        else if(modoPago == "cheque"){
+            $('.modo-pago').fadeIn('slow');
+            $('#cfematico').hide();
+        }
+        else{
+            $('.modo-pago').fadeIn('slow');            
+        }
+        
+    });
+</script>
 </html>
