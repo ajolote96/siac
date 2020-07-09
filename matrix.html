@@ -101,18 +101,24 @@
 
     if(respuesta == "contrato"){
         $("#informacion-contrato").load("html/contrato.html");
+        $('body').css('background-image', 'url(img/contrato.jpg)');   
+		
     }
     else if(respuesta == "pago"){
         $("#informacion-contrato").load("html/pago.html");
+        $('body').css('background-image', 'url(img/pago.jpg)');    
 
     }
     else if(respuesta == "queja"){
         $("#informacion-contrato").load("html/queja.html");
+        $('body').css('background-image', 'url(img/queja.jpg)');    
 
     }
     else{
         $(".generar-turno").fadeIn('slow');
         $(".lugar").hide();    
+        $('body').css('background-image', 'url(img/informacion.jpg)');    
+
 
         setTimeout(function() {                                       
             location = 'matrix.html';
