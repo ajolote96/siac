@@ -177,3 +177,42 @@ ul.CTAs a {
     }
 }
 
+  /*BARRA DE BÜSQUEDA*/
+
+  .formulario-producto {
+    display: flex;
+    margin-bottom: 0;
+    height: 3rem;
+    margin-top: 2rem;
+}
+
+.formulario-producto img {
+    max-height: 3rem;
+    margin-right: 2rem;
+}
+
+
+.formulario-producto label {
+    margin-top: 5px;
+    margin-left: 1rem;
+}
+
+
+/*Tabla de datos*/
+
+.tabla_datos {
+    margin-top: 2rem;
+    width: 100%;
+    border: .1rem solid black;
+}
+
+.tabla_datos th {
+    background-color: #eee;
+    border: .1rem solid #0f9958;
+}
+
+.tabla_datos td {
+    text-align: center;
+    border: .1rem solid #0f9958;
+    padding: .3rem;
+}
