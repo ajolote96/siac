@@ -56,7 +56,44 @@
 //    });
 $('.face-ico').click(function () { 
         $(".generar-turno").fadeIn('slow');
-        $(".queja").hide();    
+        $(".queja").hide(); 
+        var detalle = $(this).attr('name');   
+        var motivo = localStorage.getItem('motivo-principal');
+        
+        if(localStorage.getItem('turno') == null){
+            localStorage.setItem('turno', '1');
+            document.getElementById("turno").innerHTML = localStorage.getItem('turno'); 
+        }
+        else{
+            var turno = localStorage.getItem('turno');
+            parseInt(turno);
+            turno++;
+            document.getElementById("turno").innerHTML = turno; 
+
+            localStorage.setItem('turno', turno.toString());
+        } 
+
+        var respuesta = {
+            "motivo": motivo,
+            "detalle": detalle            
+        };
+
+        $.ajax({            
+            data: respuesta,
+            url: 'php/guardar-motivo.php',
+            type: 'POST'
+        })
+        .done(function(respuesta) {
+            console.log(respuesta);
+            
+            // $("#pregunta").html(respuesta);
+            
+        })
+        .fail(function() {
+            console.log("error");
+        });
+
+
 
         setTimeout(function() {                                       
             location = 'matrix.html';

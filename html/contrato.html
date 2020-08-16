@@ -285,14 +285,28 @@
     
     $('.face-ico').click(function () { 
         $(".generar-turno").fadeIn('slow');
-        $(".lugar").hide();    
-        var motivo2 = $(this).attr('name');   
+        $(".lugar").hide();  
+
+        if(localStorage.getItem('turno') == null){
+            localStorage.setItem('turno', '1');
+            document.getElementById("turno").innerHTML = localStorage.getItem('turno'); 
+        }
+        else{
+            var turno = localStorage.getItem('turno');
+            parseInt(turno);
+            turno++;
+            document.getElementById("turno").innerHTML = turno; 
+
+            localStorage.setItem('turno', turno.toString());
+        } 
+
+        var detalle = $(this).attr('name');   
 
         var motivo =  localStorage.getItem("motivo-principal");
 
         var respuesta = {
             "motivo": motivo,
-            "motivo2": motivo2
+            "detalle": detalle
         };
 
         $.ajax({            

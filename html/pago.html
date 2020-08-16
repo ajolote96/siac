@@ -59,7 +59,7 @@
        
         var respuesta = {
             "motivo": motivo,
-            "motivo2": pago,
+            "detalle": pago,
             "tipo": tipo
         };
        
@@ -81,7 +81,21 @@
 
         if(tipo == "ejecutivo"){
             $(".generar-turno").fadeIn('slow');
-            $(".modo-pago").hide();    
+            $(".modo-pago").hide();   
+
+            if(localStorage.getItem('turno') == null){
+                localStorage.setItem('turno', '1');
+                document.getElementById("turno").innerHTML = localStorage.getItem('turno'); 
+            }
+            else{
+                var turno = localStorage.getItem('turno');
+                parseInt(turno);
+                turno++;
+                document.getElementById("turno").innerHTML = turno; 
+
+                localStorage.setItem('turno', turno.toString());
+            } 
+
         } else{
             $(".instrucciones").fadeIn('slow');
             $(".modo-pago").hide(); 
