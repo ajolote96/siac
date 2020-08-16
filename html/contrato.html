@@ -246,17 +246,17 @@
 
         <div class="requisitos">
             <div>
-                <img src="img/casa.svg" class="face-ico">
+                <img src="img/casa.svg" name="casa" class="face-ico">
                 <h2>Casa Habitación</h2>
             </div>
 
             <div>
-                <img src="img/negocio.png" class="face-ico" alt="">
+                <img src="img/negocio.png" name="negocio" class="face-ico" alt="">
                 <h2>Negocio</h2>
             </div>
 
             <div>
-                <img src="img/industria.png" class="face-ico" alt="">
+                <img src="img/industria.png" name="industria" class="face-ico" alt="">
                 <h2>Industria</h2>
             </div>  
         </div>
@@ -286,6 +286,29 @@
     $('.face-ico').click(function () { 
         $(".generar-turno").fadeIn('slow');
         $(".lugar").hide();    
+        var motivo2 = $(this).attr('name');   
+
+        var motivo =  localStorage.getItem("motivo-principal");
+
+        var respuesta = {
+            "motivo": motivo,
+            "motivo2": motivo2
+        };
+
+        $.ajax({            
+            data: respuesta,
+            url: 'php/guardar-motivo.php',
+            type: 'POST'
+        })
+        .done(function(respuesta) {
+            console.log(respuesta);
+            
+            // $("#pregunta").html(respuesta);
+            
+        })
+        .fail(function() {
+            console.log("error");
+        });
 
         setTimeout(function() {                                       
             location = 'matrix.html';

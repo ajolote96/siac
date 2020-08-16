@@ -54,6 +54,30 @@
      $('.modo-pago-ico').click(function () { 
 
         var tipo = $(this).attr('name');
+        var motivo =  localStorage.getItem("motivo-principal");
+        var pago = localStorage.getItem("modoPago");
+       
+        var respuesta = {
+            "motivo": motivo,
+            "motivo2": pago,
+            "tipo": tipo
+        };
+       
+        $.ajax({            
+            data: respuesta,
+            url: 'php/guardar-motivo.php',
+            type: 'POST'
+        })
+        .done(function(respuesta) {
+            console.log(respuesta);
+            
+            // $("#pregunta").html(respuesta);
+            
+        })
+        .fail(function() {
+            console.log("error");
+        });
+
 
         if(tipo == "ejecutivo"){
             $(".generar-turno").fadeIn('slow');
@@ -72,7 +96,9 @@
     $('.face-ico').click(function(){
 
         var modoPago = $(this).attr('name');
-        console.log(modoPago);
+
+        localStorage.setItem("modoPago", modoPago);
+
         $('.pago').hide();
         if(modoPago == "tarjeta"){
             $('.modo-pago').fadeIn('slow');

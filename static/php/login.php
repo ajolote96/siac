@@ -26,7 +26,9 @@
             
              if($resultado->num_rows==1 && $user == "matrix"):
                 $filas = $resultado->fetch_assoc();
-                $_SESSION['rpe'] = $user;        
+                $_SESSION['rpe'] = $user;  
+                $_SESSION['cac'] = $cac;    
+      
                 echo json_encode(array('error'=> false, 'tipo'=> $filas['rpe']));  
                 exit(0);     
             endif;

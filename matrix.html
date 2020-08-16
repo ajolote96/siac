@@ -98,6 +98,8 @@
     $('#faces-preguntas').hide();
     var respuesta = $(this).attr('name');   
     $('.ico').show();
+    localStorage.setItem("motivo-principal", respuesta);
+
 
     if(respuesta == "contrato"){
         $("#informacion-contrato").load("html/contrato.html");
