@@ -50,12 +50,13 @@ function guardar_respuesta_great(reaccion) {
             data: { reaccion, reaccion },
 
         })
-        // .done(function(respuesta) {
-        //     $("#pregunta").html(respuesta);
-        // })
-        // .fail(function() {
-        //     console.log("error");
-        // });
+        .done(function(respuesta) {
+            // $("#pregunta").html(respuesta);
+            // console.log(respuesta);
+        })
+        .fail(function() {
+            console.log("error");
+        });
 }
 
 //Cambia la pregunta cuando se hace un click en cualquier icono/emoji
@@ -91,29 +92,29 @@ $(document).on('click', '#bad', function() {
 });
 
 
-function imprimir_datos() {
-    $.ajax({
-            url: 'php/evaluar-ejecutivos.php',
-            type: 'POST',
-            dataType: 'html',
+// function imprimir_datos() {
+//     $.ajax({
+//             url: 'php/evaluar-ejecutivos.php',
+//             type: 'POST',
+//             dataType: 'html',
 
-        })
-        .done(function(respuesta) {
-            $("#datos").html(respuesta);
-        })
-        .fail(function() {
-            console.log("error");
-        });
-}
+//         })
+//         .done(function(respuesta) {
+//             $("#datos").html(respuesta);
+//         })
+//         .fail(function() {
+//             console.log("error");
+//         });
+// }
 
 
-$(document).on('click', '#evaluar-ejecutivos', function() {
+// $(document).on('click', '#evaluar-ejecutivos', function() {
 
-    imprimir_datos();
-    // var valor = $(this).val();
-    // if (valor != "") {
-    //     imprimir_datos(valor);
-    // } else {
-    //     imprimir_datos();
-    // }
-});
+//     imprimir_datos();
+//     // var valor = $(this).val();
+//     // if (valor != "") {
+//     //     imprimir_datos(valor);
+//     // } else {
+//     //     imprimir_datos();
+//     // }
+// });

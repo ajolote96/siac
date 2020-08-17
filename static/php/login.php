@@ -9,7 +9,7 @@
 
         $user = $conexion->real_escape_string($_POST['username']);
         $contraseña = $conexion->real_escape_string($_POST['password']);     
-        $cac = $_POST['cac'];           
+        // $cac = $_POST['cac'];           
 
         if($nueva_consulta = $conexion->prepare("SELECT * FROM usuario WHERE rpe = ? AND contraseña = ?")){
             $nueva_consulta->bind_param('ss', $user, $contraseña);
@@ -19,26 +19,29 @@
             if($resultado->num_rows==1 && ($user == "admin" || $user == "adminzona" || $user == "admindivision")):
                 $filas = $resultado->fetch_assoc();
                 $_SESSION['rpe'] = $user;    
-                $_SESSION['cac'] = $cac;    
+                // $_SESSION['cac'] = $cac;    
                 echo json_encode(array('error'=> false, 'tipo'=> $filas['rpe']));  
                 exit(0);     
             endif;
             
              if($resultado->num_rows==1 && $user == "matrix"):
-                $filas = $resultado->fetch_assoc();
+                $filas = $resultado->fetch_assoc();        
                 $_SESSION['rpe'] = $user;  
-                $_SESSION['cac'] = $cac;    
-      
+                $_SESSION['cac'] = $filas['cac'];
+                // $_SESSION['cac'] = $cac;    
+                //Tipo de usuario, registrado en la tabla usuarios
                 echo json_encode(array('error'=> false, 'tipo'=> $filas['rpe']));  
                 exit(0);     
             endif;
 
 
             if($resultado->num_rows == 1){
-                $filas = $resultado->fetch_assoc();
-                $update = $conexion->query("UPDATE ejecutivo SET puesto_laboral = '".$cac."' WHERE rpe = '".$filas['rpe']."'");
-                $_SESSION['rpe'] = $user;
-                $_SESSION['cac'] = $cac;
+                $filas = $resultado->fetch_assoc();        
+                //Actualiza el puesto laboral del ejecutivo en el que se ha logeado
+                // $update = $conexion->query("UPDATE ejecutivo SET puesto_laboral = '".$cac."' WHERE rpe = '".$filas['rpe']."'");
+                $_SESSION['rpe'] = $user;  
+                $_SESSION['cac'] = $filas['cac'];
+                // $_SESSION['cac'] = $cac;
                 echo json_encode(array('error'=> false, 'tipo'=> $filas['rpe']));
             }else{
                 echo json_encode(array('error'=>true));
