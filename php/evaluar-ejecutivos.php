@@ -13,8 +13,14 @@
     // $fin = "2020-01-25";
 
     $salida = "";
-    $query = "SELECT * FROM reacciones WHERE cac='".$cac."' and fecha>='".$inicio."' and fecha<='".$fin."' ";
+    //$query = "SELECT * FROM reacciones WHERE cac='".$cac."' and fecha>='".$inicio."' and fecha<='".$fin."' ORDER BY rpe";
+    $query = "SELECT rpe, cac, SUM(great), SUM(good), SUM(ok), SUM(bad) FROM reacciones WHERE cac='".$cac."' and fecha>='".$inicio."' and fecha<='".$fin."' GROUP BY rpe";
 
+    // $great = 0;
+    // $good = 0;
+    // $ok = 0;
+    // $bad = 0;
+    
     $resultado = $conexion->query($query);
     
       if($resultado->num_rows<=0){
@@ -25,13 +31,14 @@
     }
 
 
-    $salida.="<table class='container table table-striped'>
+    $salida.="
+    <p class='bg-dark text-white'>Periodo de Revisión: Desde <span class='text-success'> $inicio </span> hasta <span class='text-success'>$fin</span></p>
+
+    <table class='container table table-striped'>
                     <thead>
                         <tr>
                             <th>RPE</td>
-                            <th>Fecha</td>
                             <th>CAC</td>
-                            <th>Motivo</td>
                             <th><img src='img/great.png' class='ico-table'></td>
                             <th><img src='img/good.png' class='ico-table'></td>
                             <th><img src='img/ok.png' class='ico-table'></td>
@@ -40,21 +47,19 @@
                     </thead>
                 <tbody>";
 
-                while($fila= $resultado->fetch_assoc()){
-                    $salida.="<tr>
-                                <td>".$fila['rpe']."</td>
-                                <td>".$fila['fecha']."</td>
-                                <td>".$fila['cac']."</td>
-                                <td>".$fila['motivo_visita']."</td>
-                                <td>".$fila['great']."</td>
-                                <td>".$fila['good']."</td>
-                                <td>".$fila['ok']."</td>
-                                <td>".$fila['bad']."</td>
-                            
-                                </tr>";
-                }
+    while($fila= $resultado->fetch_assoc()){
+        $salida.="<tr>
+                    <td>".$fila['rpe']."</td>
+                    <td>".$fila['cac']."</td>
+                    <td>".$fila['SUM(great)']."</td>
+                    <td>".$fila['SUM(good)']."</td>
+                    <td>".$fila['SUM(ok)']."</td>
+                    <td>".$fila['SUM(bad)']."</td>
+                
+                    </tr>";
+    }
             
-            $salida.="</tbody></table>";
+    $salida.="</tbody></table>";
 
     echo $salida;
             

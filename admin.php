@@ -89,7 +89,7 @@
                             <a href="#">Zona</a>
                         </li>
 
-                        <li>
+                        <li id="ejecutivoCAC">
                             <a href="#">CAC</a>
                         </li>
 
@@ -163,7 +163,7 @@
                     <img style="width: 20%;" src="cfe-distribucion.png" alt="LOGO">                              
                 </div>
             </nav> -->
-            <div id="ejecutivos"></div>
+            <div id="contenido-principal"></div>
             
         </div>
 
@@ -187,7 +187,12 @@
         });
 
         $('#ejecutivo').click(function () { 
-            $("#ejecutivos").load("html/buscar.html");
+            $("#contenido-principal").load("html/buscar.html");
+
+        });
+
+        $('#ejecutivoCAC').click(function () { 
+            $("#contenido-principal").load("html/datos-ejecutivo.html");
 
         });
     </script>
