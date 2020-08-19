@@ -1,4 +1,3 @@
-
 <?php
     session_start();
 
@@ -31,6 +30,13 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- HIGHCHARTS -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
 </head>
 
 <body>
@@ -61,7 +67,7 @@
                             <a href="#">Zona</a>
                         </li>
 
-                        <li>
+                        <li id="motivoCAC">
                             <a href="#">CAC</a>
                         </li>
 
@@ -193,6 +199,11 @@
 
         $('#ejecutivoCAC').click(function () { 
             $("#contenido-principal").load("html/datos-ejecutivo.html");
+
+        });
+
+        $('#motivoCAC').click(function () { 
+            $("#contenido-principal").load("html/grafica-cac.php");
 
         });
     </script>
