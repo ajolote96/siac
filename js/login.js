@@ -22,7 +22,7 @@ jQuery(document).on('submit', '#formlg', function(event) {
                     location = 'admindivision.php';
                 }              
                 else if(respuesta.tipo == 'matrix') {
-                    location = 'matrix.html';
+                    location = 'matrix.php';
                 } else{
                     location = 'banner.html';
                 }

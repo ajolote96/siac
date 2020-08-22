@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +42,7 @@
     </div>
     
     <div class="background-color">
-        <header class="logo-back" >
+        <header class="logo-back" >   
             <div>
                 <a href="matrix.html">
                     <img src="img/cfe-contigo.png" alt="Logo CFE contigo" class="float-left logo-cfe-contigo">
@@ -49,7 +53,7 @@
             
         </header>
 
-        <a href="matrix.html">
+        <a href="matrix.php">
             <img src="img/regresar.png" alt="Regresar" class="ico float-right" style="display: none;">            
         </a>
         
@@ -57,7 +61,10 @@
         
             
         <div class="container" id="faces-preguntas">
-                       
+
+            <span style=" color:white; padding: 5px; text-transform: uppercase; background-color: #555; border-radius:5px;"><?php echo $_SESSION['cac']?></span>
+
+            
             <h2 style="margin-bottom: 50px;">¿Cuál es el motivo de su visita?</h2>
 
             <div class="faces">            

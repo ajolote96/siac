@@ -162,7 +162,7 @@
 
             <div class="logo">
                 <a href="admin.php">
-                    <img style="width: 20%; margin-left: 50px;" src="img/cfe-distribucion.png" alt="LOGO">
+                    <img style="width: 20%; margin-left: 50px;" src="img/cfe-suministros.jpg" alt="LOGO">
                 </a>
             </div>
             <!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
