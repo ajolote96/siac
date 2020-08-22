@@ -25,6 +25,10 @@
 </head>
 <body>
 
+<div class="error">
+    <span>No hay datos en esas fechas</span>
+</div>
+
     
 <div class="container obtener-datos">
     <form action="" method="POST" name="tablafrm" id="tablafrm">
@@ -68,10 +72,20 @@
             $.ajax({
                 type: "POST",
                 url: "php/evaluar-ejecutivos.php",
+                dataType: 'json',
                 data: $('#tablafrm').serialize(),                
                 success: function (response) {
-                    $('#tablafrm').hide();
-                    $('#contenedor').html(response);
+
+                    if(response.error){
+                        $('.error').slideDown('slow');
+                        $('#contenedor').hide();
+                        setTimeout(function() {
+                            $('.error').slideUp('slow');
+                        }, 3000);   
+                        return;     
+                    }
+                   $('#contenedor').show();
+                   $('#contenedor').html(response);
                 }
             });
         });

@@ -204,7 +204,7 @@
         });
 
         $('#motivoCAC').click(function () { 
-            $("#contenido-principal").load("html/grafica-cac.php");
+            $("#contenido-principal").load("html/grafica-cac.html");
 
         });
     </script>

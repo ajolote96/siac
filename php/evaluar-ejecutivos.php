@@ -23,17 +23,12 @@
     
     $resultado = $conexion->query($query);
     
-      if($resultado->num_rows<=0){
-        echo "<h2>No hay Datos en esas fechas</h2>
-         <a href='admin.php' class='btn btn-warning col-3 centrar'>Regresar</a>
-        ";
+    if($resultado->num_rows<=0):
+        echo json_encode(array('error'=> true));
         exit(0);
-    }
-
+    endif;
 
     $salida.="
-    <p class='bg-dark text-white'>Periodo de Revisión: Desde <span class='text-success'> $inicio </span> hasta <span class='text-success'>$fin</span></p>
-
     <table class='container table table-striped'>
                     <thead>
                         <tr>
@@ -61,7 +56,7 @@
             
     $salida.="</tbody></table>";
 
-    echo $salida;
+    echo json_encode($salida);
             
     $conexion->close();
 

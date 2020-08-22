@@ -1,7 +1,3 @@
-<?php
-  require '../php/conexion.php';  
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +22,10 @@
 
 
 <body>    
+    <div class="error">
+        <span>No hay datos en esas fechas</span>
+    </div>
+
   <div class="container obtener-datos">
       <form action="" method="POST" name="tablafrm" id="tablafrm">
           <div class="form-group" id="cac-seleccion">
@@ -43,21 +43,19 @@
           <div class="form-group date container">
               <div>
                   <label for="fecha-inicio">Inicio: </label>
-                  <input type="date" name="fecha-inicio" id="fecha-inicio">
+                  <input type="date" name="fecha-inicio" id="fecha-inicio" required>
               </div>
             
               <div>
                   <label for="fecha-fin">Fin: </label>
-                  <input type="date" name="fecha-fin" id="fecha-fin">
+                  <input type="date" name="fecha-fin" id="fecha-fin" required>
               </div>    
           </div>
           
-          <input type="button" value="Mostrar Tabla" class="btn-lg btn-block btn-success" id="send-table">
+          <input type="button" value="Mostrar Gráfica" class="btn-lg btn-block btn-success" id="send-table">
           
       </form>
   </div>
-
-  <div id="contenedor"></div>
 
   <figure class="highcharts-figure" style="display:none;">
       <div id="container"></div>        
@@ -68,21 +66,27 @@
 <script>
 
 
-$('#send-table').click(function(){
+$('#send-table').click(function(){    
             $.ajax({
                 type: "POST",
                 url: "php/showChart.php",
-                data: $('#tablafrm').serialize(),                
+                data: $('#tablafrm').serialize(), 
+                dataType: 'json',
                 success: function (response) {
                   
-                    data = JSON.parse(response);
-
-                    // $('#tablafrm').hide();
-                    // $('#contenedor').html(response);
-                    $('.highcharts-figure').show();
+                    if(response.error){
+                        $('.error').slideDown('slow');
+                        $('.highcharts-figure').hide();
+                        setTimeout(function() {
+                            $('.error').slideUp('slow');
+                        }, 3000);   
+                        return;                     
+                    }
+                   
+                        $('.highcharts-figure').show();
 
                     
-                    //Build the chart
+                        //Build the chart
                             Highcharts.chart('container', {
                         chart: {
                             type: 'pie',
@@ -117,16 +121,19 @@ $('#send-table').click(function(){
                         series: [{
                             type: 'pie',
                             name: 'Motivo',
-                            data: data
+                            data: response
                         }]
                         });
-                   
-
+            
                 }
+                //  error: function(respuesta){
+                //     console.log(respuesta);
+                //  }
+                
             });
         });
 
-
+    
 
 </script>
 </html>

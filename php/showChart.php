@@ -10,8 +10,12 @@ $fin = $_POST['fecha-fin'];
 
 $query = "SELECT motivo, COUNT(motivo) as motivoContador FROM motivos WHERE cac='".$cac."' and fecha>='".$inicio."' and fecha<='".$fin."' GROUP BY motivo";
 
-
 $resultado = $conexion->query($query);
+
+if($resultado->num_rows<=0):
+  echo json_encode(array('error'=> true));
+  exit(0);
+endif;
     
 while($row = $resultado->fetch_assoc()){
   $json_array[] = array(
@@ -21,14 +25,6 @@ while($row = $resultado->fetch_assoc()){
 }
 
 echo json_encode($json_array);
-
-// if($resultado->num_rows<=0){
-//   echo "<h2>No hay Datos en esas fechas</h2>
-//    <a href='admin.php' class='btn btn-warning col-3 centrar'>Regresar</a>
-//   ";
-//   exit(0);
-// }
-
 
 
 
