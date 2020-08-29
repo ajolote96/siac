@@ -32,7 +32,8 @@
                                     <td>".$fila['nombre']."</td>
                                     <td>".$fila['correo']."</td>
                                     <td>".$fila['puesto_contratado']."</td>
-                                    <td>".$fila['estatus']."</td>                                    
+                                    <td>".$fila['estatus']."</td>   
+                                    <td><a class='btn btn-warning' href='php/editar-ejecutivo.php?rpe=".$fila['rpe']."'>Editar</a></td>                                 
                                                                    
                                   </tr>";
                     }
