@@ -140,8 +140,8 @@
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         
-                        <li>
-                            <a href="#">Usuarios</a>
+                        <li id="usuarios">
+                            <a href="usuarios/index.php">Usuarios</a>
                         </li>
                        
                     </ul>
@@ -207,6 +207,8 @@
             $("#contenido-principal").load("html/grafica-cac.html");
 
         });
+
+        
     </script>
 </body>
 
