@@ -127,7 +127,7 @@
                 </li>
 
                 <li>  
-                    <a href="#">Gestión de Encuestas</a>
+                    <a href="preguntas/index.php">Gestión de Encuestas</a>
                     <!-- Alta, baja, modificar preguntas -->
                 </li> 
 
