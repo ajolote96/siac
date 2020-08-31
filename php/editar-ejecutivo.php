@@ -15,7 +15,8 @@ $filas = $resultado->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">   
+     <style>
                 /*EDITAR EJECUTIVO*/
 
         .formulario-modificar label,
@@ -59,21 +60,21 @@ $filas = $resultado->fetch_assoc();
                 <input type="text" name="rpe" id="rpe" value="<?php echo $filas['rpe'];?>" readonly>
 
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" value="<?php echo $filas['nombre'];?>" onlyread>
+                <input type="text" name="nombre" id="nombre" value="<?php echo $filas['nombre'];?>" >
 
                 <label for="contrato">Contrato</label>
-                <input type="text" name="contrato" id="contrato" value="<?php echo $filas['contrato'];?>" onlyread>
+                <input type="text" name="contrato" id="contrato" value="<?php echo $filas['contrato'];?>" >
 
                 <label for="correo">Correo</label>
-                <input type="text" name="correo" id="correo" value="<?php echo $filas['correo'];?>" onlyread>
+                <input type="text" name="correo" id="correo" value="<?php echo $filas['correo'];?>" >
 
                 <label for="celular">Celular</label>
-                <input type="text" name="celular" id="celular" value="<?php echo $filas['celular'];?>" onlyread>
+                <input type="text" name="celular" id="celular" value="<?php echo $filas['celular'];?>" >
 
                 <label for="puesto">Puesto Contratado</label>
-                <input type="text" name="puesto" id="puesto" value="<?php echo $filas['puesto_contratado'];?>" onlyread>
+                <input type="text" name="puesto" id="puesto" value="<?php echo $filas['puesto_contratado'];?>" >
 
-                <input type="submit" name="" id="" value="enviar" class="btn-lg btn-success btn-block">
+                <input type="submit" name="" id="" value="EDITAR" class="btn-lg btn-success btn-block">
             </fieldset>
         </form>
     </main>

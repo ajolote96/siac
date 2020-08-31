@@ -4,23 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        
+        .buscador{
+            display: flex;
+            justify-content: space-around;
+        }
+        th{
+            text-align: center;
+        }
+       
+    </style>
+
 </head>
 <body>
     <main class="contenedor main-producto">
-        <div>
-             <form action="" class="formulario-producto">
-            <img src="img/lupa.png" alt="icono-lupa">
-            <input type="text" placeholder="Ingresa el código o nombre del producto" name="caja_busqueda" id="caja_busqueda">
-            <label for="caja_busqueda" class="btn btn-outline-success">Buscar</label>
-            </form>
+
+        <div class="buscador">
+             <div>
+                <form action="" class="formulario-producto">
+                <img src="img/lupa.png" alt="icono-lupa">
+                <input type="text" placeholder="Ingresa el rpe o nombre del ejecutivo" name="caja_busqueda" id="caja_busqueda">
+                <label for="caja_busqueda" class="btn btn-outline-success">Buscar</label>
+                </form>
+            </div>
+
+            <button id="agregar" style="margin-top: 10px;" class="btn-lg btn-success"> <i class="fas fa-user-plus"></i> </button>
         </div>
        
-        <div id="datos">
+        <div id="datos" style="margin: 30px;">
         </div>
     </main>
     
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/buscar.js"></script>
+    <script>
+        $('#agregar').click(function () { 
+            $("#contenido-principal").load("html/agregar.html");
+        });      
+    </script>
 </body>
 </html>
