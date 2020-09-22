@@ -60,11 +60,11 @@
                             Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
                         </li> 
                         -->
-                         <li>
+                         <li id="motivoDivision">
                             <a href="#">División</a>
                         </li>
 
-                        <li>
+                        <li id="motivoZona">
                             <a href="#">Zona</a>
                         </li>
 
@@ -131,10 +131,6 @@
                     <!-- Alta, baja, modificar preguntas -->
                 </li> 
 
-                <li>
-                    <a href="#">Gestión de Sitios</a>
-                </li>
-
                 <li class="active">
                     <!-- Sólo  jefes de cac, sólo podrá modificar lo de sus cacs  -->
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
@@ -142,6 +138,10 @@
                         
                         <li id="usuarios">
                             <a href="usuarios/index.php">Usuarios</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Gestión de Sitios</a>
                         </li>
                        
                     </ul>
@@ -205,6 +205,16 @@
 
         $('#motivoCAC').click(function () { 
             $("#contenido-principal").load("html/grafica-cac.html");
+
+        });
+
+        $('#motivoZona').click(function () { 
+            $("#contenido-principal").load("html/grafica-zona.html");
+
+        });
+
+        $('#motivoDivision').click(function () { 
+            $("#contenido-principal").load("html/grafica-division.html");
 
         });
 

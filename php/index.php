@@ -12,13 +12,11 @@
         }
         else if($_SESSION['counter']>=1) {
             mandarPregunta();
-            $_SESSION['counter']+=1;
         }        
     }
     else{
     $_SESSION['counter']=1;
         mandarPregunta(); 
-        $_SESSION['counter']+=1;
     }
 
     function mandarPregunta(){
@@ -37,7 +35,10 @@
 
         echo $respuesta;
 
+        $_SESSION['counter']+=1;
+
         $conexion->close();
+
     }
 
     ?>
