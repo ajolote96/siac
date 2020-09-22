@@ -6,7 +6,7 @@
             header("Location: admin.php");
         }
         else if($_SESSION['rpe']=="matrix"){
-            header("Location: matrix.html");
+            header("Location: matrix.php");
         }
         else{
             header("Location: encuesta.php");

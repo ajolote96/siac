@@ -2,7 +2,7 @@
     session_start();
 
     if($_SESSION['rpe'] == "matrix"){
-        header("Location: matrix.html");
+        header("Location: matrix.php");
     }
     else if($_SESSION['rpe'] != "admin" && $_SESSION['rpe'] !="matrix" && $_SESSION['rpe'] != "adminzona" && $_SESSION['rpe'] != "admindivision"){
         header("Location: encuesta.php");

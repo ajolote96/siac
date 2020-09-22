@@ -5,7 +5,7 @@
         if($_SESSION['rpe'] == "admin")
             header("Location: admin.php");
         else if($_SESSION['rpe'] == "matrix")
-           header("Location: matrix.html");
+           header("Location: matrix.php");
     endif;
 
 ?>
