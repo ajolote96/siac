@@ -106,33 +106,15 @@
                        
                     </ul>
                 </li>  
-                
-                <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestión de Ejecutivo</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        
-                        <li>
-                            <a href="#">Alta</a>
-                        </li>
-                        <li>
-                            <a href="#">Baja</a>
-                        </li>
-                        <li>
-                            <a href="#">Modificación</a>
-                        </li>
-                    </ul>
-                </li> -->
                 <li id="ejecutivo">
                     <a href="#">Gestión de Ejecutivo</a>
                 </li>
 
                 <li>  
                     <a href="encuestas.php">Gestión de Encuestas</a>
-                    <!-- Alta, baja, modificar preguntas -->
                 </li> 
 
                 <li class="active">
-                    <!-- Sólo  jefes de cac, sólo podrá modificar lo de sus cacs  -->
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         
@@ -165,19 +147,49 @@
                     <img style="width: 20%; margin-left: 50px;" src="img/cfe-suministros.jpg" alt="LOGO">
                 </a>
             </div>
-            <!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <div class="container-fluid">       
-                    <img style="width: 20%;" src="cfe-distribucion.png" alt="LOGO">                              
-                </div>
-            </nav> -->
-            <div id="contenido-principal"></div>
-            
-        </div>
 
-    </div>
-
+            <div id="contenido-principal">
+            <center>
+            <h2>Registrar nueva Pregunta:</h2>
+            <a class="btn btn-success" href="registrar-encuesta.php">Registrar</a>
+            </center>
+            <div id="agregar" style="marigin: 20px;"> 
+        <table class='tabla_datos' style="marigin: 20px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>CAMPAÑA</th>
+                    <th>PREGUNTA</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <?php
+                require "php/conecta.php";
+                $sql = "SELECT * FROM preguntas Where eliminado='0' ORDER BY campaña";
+                $res = mysqli_query($con, $sql);
+                $num = mysqli_num_rows($res);
+                
+                for($i = $num; $objeto = $res->fetch_object() ; $i++)
+                {
+                    ?>
+                        <tbody>
+                            <tr>
+                                <td><?= $objeto->id?></td>
+                                <td><?= $objeto->campaña?></td>
+                                <td><?= $objeto->preguntas?></td>
+                                <td><a class="btn btn-warning" href="edicion-encuesta.php?id=<?=$objeto->id?>">Editar</a></td>
+                                <td><a class="btn btn-danger" href="elim-encuesta.php?id=<?=$objeto->id?>">Eliminar</a></td>
     
-
+                            </tr>
+                        </tbody>
+                <?php
+                    }
+                    ?>
+            </table>
+            </div>
+        </div>
+    </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

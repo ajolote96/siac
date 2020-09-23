@@ -16,6 +16,66 @@
 <html>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <?php require "php/conecta.php";
+            $identificador=$_GET['id'];
+            $sql="SELECT * FROM preguntas WHERE id='$identificador'";
+
+            $res=mysqli_query($con, $sql);
+            $row=mysqli_fetch_assoc($res);
+    ?>
+    <script>
+        <?php require "php/conecta.php";
+            $identificador=$_GET['id'];
+            $sql="SELECT * FROM preguntas WHERE id='$identificador'";
+
+            $res=mysqli_query($con, $sql);
+            $row=mysqli_fetch_assoc($res);
+        ?>
+
+        function validacion() {
+            var CAMP = document.formulario.campaña.value;
+            var PREG = document.formulario.preguntas.value;
+
+            if (CAMP == "" | PREG == "") {
+                alert("Campos Faltantes")
+                return false;
+            } else
+                return true;
+
+        } // TERMINA EL CODIO JS PARA VALIDAR LOS CAMPOS
+
+        $(document).ready(function() {
+            $("#boton").on('click', function() {
+                if (validacion()) { ///Si los campos estan llenos
+                    var form = $('#formulario')[0];
+                    var data = new FormData(form);
+
+                    $.ajax({
+                        url: 'php/editar-encuesta.php',
+                        type: 'POST',
+                        dataType: 'text',
+                        data: data,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function(respuesta) {
+                            if (respuesta == 0)
+                                alert('Registro incorrecto')
+                            else {
+                                alert('Edicion Completada')
+                                location.href = "encuestas.php";
+                            }
+                        }
+
+                    }); ///Fin del ajax
+                } ///Termina el if de la funcion de validacion 
+            }); ///Funcion de click en un boton
+        }); ///Fin de la funcion ready   
+
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +96,7 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
+
 
 </head>
 
@@ -50,17 +110,17 @@
 
             <ul class="list-unstyled components">
                 <p>Panel Administrativo</p>
-                
+
                 <li class="active">
                     <a href="#homeSubmenuMatrix" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Motivos de Visitas</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuMatrix">
-                        
+
                         <!-- <li>
                             <a href="#">Motivo de Visitas</a>
                             Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
                         </li> 
                         -->
-                         <li id="motivoDivision">
+                        <li id="motivoDivision">
                             <a href="#">División</a>
                         </li>
 
@@ -75,20 +135,20 @@
                         <li>
                             <a href="#">Generar Reporte Específico</a>
                         </li>
-                       
+
                     </ul>
-                </li>                                                                                    
-                    
+                </li>
+
                 <li class="active">
                     <a href="#homeSubmenuEjecutivo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Evaluación de Ejecutivo</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuEjecutivo">
-                        
+
                         <!-- <li>
                             <a href="#">Motivo de Visitas</a>
                             Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
                         </li> 
                         -->
-                         <li>
+                        <li>
                             <a href="#">División</a>
                         </li>
 
@@ -103,39 +163,21 @@
                         <li>
                             <a href="#">Generar Reporte Específico</a>
                         </li>
-                       
+
                     </ul>
-                </li>  
-                
-                <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestión de Ejecutivo</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        
-                        <li>
-                            <a href="#">Alta</a>
-                        </li>
-                        <li>
-                            <a href="#">Baja</a>
-                        </li>
-                        <li>
-                            <a href="#">Modificación</a>
-                        </li>
-                    </ul>
-                </li> -->
+                </li>
                 <li id="ejecutivo">
                     <a href="#">Gestión de Ejecutivo</a>
                 </li>
 
-                <li>  
+                <li>
                     <a href="encuestas.php">Gestión de Encuestas</a>
-                    <!-- Alta, baja, modificar preguntas -->
-                </li> 
+                </li>
 
                 <li class="active">
-                    <!-- Sólo  jefes de cac, sólo podrá modificar lo de sus cacs  -->
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
-                        
+
                         <li id="usuarios">
                             <a href="usuarios/index.php">Usuarios</a>
                         </li>
@@ -143,21 +185,21 @@
                         <li>
                             <a href="#">Gestión de Sitios</a>
                         </li>
-                       
+
                     </ul>
-                </li>               
-                
-            </ul>            
-          
+                </li>
+
+            </ul>
+
         </nav>
-        
+
         <!-- Page Content  -->
         <div id="content">
             <div class="header-content" style="display:flex; justify-content: space-between;">
                 <h2>Inicio</h2>
-                
-                <a href="static/php/cerrar-sesion.php" style="padding: 10px;" >Cerrar Sesión</a>
-            
+
+                <a href="static/php/cerrar-sesion.php" style="padding: 10px;">Cerrar Sesión</a>
+
             </div>
 
             <div class="logo">
@@ -165,18 +207,41 @@
                     <img style="width: 20%; margin-left: 50px;" src="img/cfe-suministros.jpg" alt="LOGO">
                 </a>
             </div>
-            <!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <div class="container-fluid">       
-                    <img style="width: 20%;" src="cfe-distribucion.png" alt="LOGO">                              
+
+            <div id="contenido-principal">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <br>
+                            <br>
+                            <!-- Formulario -->
+                            <hr>
+
+                            <form id="formulario" name="formulario" enctype="multipart/form-data">
+                                <label>Identificador:</label>
+                                <input type="number" class="form-control" name="id" readonly value="<?= $row['id'] ?>">
+
+                                <label>Campaña:</label>
+                                <input type="text" class="form-control" name="campaña" value="<?= $row['campaña'] ?>">
+
+                                <label>Pregunta:</label>
+                                <input type="text" class="form-control" name="preguntas" value="<?= $row['preguntas'] ?>">
+                                <hr><br>
+                                <input id="boton" onclick="validacion()" class="btn btn-warning" type="button" value="Editar">
+                                <a href="javascript:history.back()">Regresar</a>
+                            </form>
+
+                            <!-- Fin Del Formulario -->
+                        </div>
+                    </div>
                 </div>
-            </nav> -->
-            <div id="contenido-principal"></div>
-            
+            </div>
+
         </div>
 
     </div>
 
-    
+
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -187,38 +252,37 @@
     <script src="js/jquery.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
+        $(document).ready(function() {
+            $('#sidebarCollapse').on('click', function() {
                 $('#sidebar').toggleClass('active');
-            }); 
+            });
         });
 
-        $('#ejecutivo').click(function () { 
+        $('#ejecutivo').click(function() {
             $("#contenido-principal").load("html/buscar.html");
 
         });
 
-        $('#ejecutivoCAC').click(function () { 
+        $('#ejecutivoCAC').click(function() {
             $("#contenido-principal").load("html/datos-ejecutivo.html");
 
         });
 
-        $('#motivoCAC').click(function () { 
+        $('#motivoCAC').click(function() {
             $("#contenido-principal").load("html/grafica-cac.html");
 
         });
 
-        $('#motivoZona').click(function () { 
+        $('#motivoZona').click(function() {
             $("#contenido-principal").load("html/grafica-zona.html");
 
         });
 
-        $('#motivoDivision').click(function () { 
+        $('#motivoDivision').click(function() {
             $("#contenido-principal").load("html/grafica-division.html");
 
         });
 
-        
     </script>
 </body>
 
