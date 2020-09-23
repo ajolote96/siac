@@ -45,6 +45,11 @@
     </div>
 
 
+    <h1>
+        Hola
+    </h1>
+
+
     <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
             <div class="modal-content">
