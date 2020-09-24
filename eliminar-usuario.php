@@ -16,6 +16,58 @@
 <html>
 
 <head>
+<?php require "php/conecta.php";
+        $RPE=$_GET["rpe"];
+
+            $sql="SELECT * FROM usuario WHERE rpe='$RPE'";
+
+            $res=mysqli_query($con, $sql);
+            $row=mysqli_fetch_assoc($res);
+
+    ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+            function validacion() {
+            var USER = document.formulario.rpe.value;
+            var PASS = document.formulario.pass.value;
+            var CAC = document.formulario.cac.value;
+
+            if (USER == "" | PASS == "" || CAC == "") {
+                alert("Campos Faltantes")
+                return false;
+            } else
+                return true;
+
+        } // TERMINA EL CODIgO JS PARA VALIDAR LOS CAMPOS
+
+        $(document).ready(function() {
+            $("#boton").on('click', function() {
+                if (validacion()) { ///Si los campos estan llenos
+                    var form = $('#formulario')[0];
+                    var data = new FormData(form);
+                    $.ajax({
+                        url: 'php/eliminar-usuario.php',
+                        type: 'POST',
+                        dataType: 'text',
+                        data: data,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function(respuesta) {
+                            if (respuesta == 0)
+                                alert('Registro incorrecto')
+                            else {
+                                alert('Edicion Completada')
+                                location.href="usuarios.php";
+                            }
+                        }
+
+                    }); ///Fin del ajax
+                } ///Termina el if de la funcion de validacion 
+            }); ///Funcion de click en un boton
+        }); ///Fin de la funcion ready   
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -151,46 +203,27 @@
                     <img style="width: 20%; margin-left: 50px;" src="img/cfe-suministros.jpg" alt="LOGO">
                 </a>
             </div>
+
             <div class="col-lg-12 text-center">
+            <br>
             <div id="contenido-principal">
-            <center>
-            <h2>Registrar nueva Pregunta:</h2>
-            <a class="btn btn-success" href="registrar-encuesta.php">Registrar</a>
-            </center>
-            <div id="agregar" style="marigin: 20px;"> 
-        <table class='tabla_datos table-hover' style="marigin: 20px;">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>CAMPAÑA</th>
-                    <th>PREGUNTA</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <?php
-                require "php/conecta.php";
-                $sql = "SELECT * FROM preguntas Where eliminado='0' ORDER BY campaña";
-                $res = mysqli_query($con, $sql);
-                $num = mysqli_num_rows($res);
-                
-                for($i = $num; $objeto = $res->fetch_object() ; $i++)
-                {
-                    ?>
-                        <tbody>
-                            <tr>
-                                <td><?= $objeto->id?></td>
-                                <td><?= $objeto->campaña?></td>
-                                <td><?= $objeto->preguntas?></td>
-                                <td><a class="btn btn-warning" href="edicion-encuesta.php?id=<?=$objeto->id?>">Editar</a></td>
-                                <td><a class="btn btn-danger" href="elim-encuesta.php?id=<?=$objeto->id?>">Eliminar</a></td>
-    
-                            </tr>
-                        </tbody>
-                <?php
-                    }
-                    ?>
-            </table>
+            <form id="formulario" name="formulario" enctype="multipart/form-data">
+            
+            <label>Usuario número:</label>
+            <input type="text" class="form-control" name="id" readonly value="<?= $row['id'] ?>">
+            
+            <label>RPE:</label>
+            <input type="text" class="form-control" name="rpe" readonly value="<?= $row['rpe'] ?>">
+
+            <label>CONTRASEÑA:</label>
+            <input type="text" class="form-control" name="pass" readonly value="<?= $row['contraseña'] ?>"> 
+            <label>CAC:</label>
+            <input type="text" class="form-control" name="cac" readonly value="<?= $row['cac'] ?>">
+       
+            <hr><br>
+            <input id="boton" onclick="validacion()" class="btn btn-danger" type="button" value="Eliminar">
+            <a href="javascript:history.back()">Regresar</a>
+            </form>  
             </div>
             </div>
         </div>

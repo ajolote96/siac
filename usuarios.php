@@ -154,43 +154,48 @@
             <div class="col-lg-12 text-center">
             <div id="contenido-principal">
             <center>
-            <h2>Registrar nueva Pregunta:</h2>
-            <a class="btn btn-success" href="registrar-encuesta.php">Registrar</a>
+            <h2>Registrar nuevo Usuario:</h2>
+            <a class="btn btn-success" href="registrar-usuario.php">Registrar</a>
             </center>
-            <div id="agregar" style="marigin: 20px;"> 
-        <table class='tabla_datos table-hover' style="marigin: 20px;">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>CAMPAÑA</th>
-                    <th>PREGUNTA</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <?php
+            <table class='tabla_datos table-hover'>
+                    <thead>
+                        <tr>
+                           <th>Número</th>
+                            <th>RPE</th>
+                            <th>CAC</th>
+                            <th>Editar</th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>
+
+
+                    <?php
                 require "php/conecta.php";
-                $sql = "SELECT * FROM preguntas Where eliminado='0' ORDER BY campaña";
+                $sql = "SELECT * FROM usuario WHERE eliminado='0' ";
                 $res = mysqli_query($con, $sql);
                 $num = mysqli_num_rows($res);
-                
-                for($i = $num; $objeto = $res->fetch_object() ; $i++)
-                {
-                    ?>
-                        <tbody>
-                            <tr>
-                                <td><?= $objeto->id?></td>
-                                <td><?= $objeto->campaña?></td>
-                                <td><?= $objeto->preguntas?></td>
-                                <td><a class="btn btn-warning" href="edicion-encuesta.php?id=<?=$objeto->id?>">Editar</a></td>
-                                <td><a class="btn btn-danger" href="elim-encuesta.php?id=<?=$objeto->id?>">Eliminar</a></td>
-    
-                            </tr>
-                        </tbody>
-                <?php
-                    }
-                    ?>
-            </table>
+            
+            for($i = $num; $objeto = $res->fetch_object() ; $i++)
+            {
+                ?>
+
+                    <tbody>
+                        <tr>
+                           <td><?= $objeto->id?></td>
+                            <td><?= $objeto->rpe?></td>
+                            <td><?= $objeto->cac?></td>
+                            <td><button type="button" class="btn btn-warning"><a href="edicion-usuario.php?rpe=<?=$objeto->rpe?>">Editar</button></a></td>
+                            <td><button type="button" class="btn btn-danger"><a href="eliminar-usuario.php?rpe=<?=$objeto->rpe?>">Eliminar</button></a></td>
+                            
+                            
+                        </tr>
+
+
+            <?php
+            }
+            ?>
+                    </tbody>
+                </table>
             </div>
             </div>
         </div>

@@ -137,7 +137,7 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         
                         <li id="usuarios">
-                            <a href="usuarios/index.php">Usuarios</a>
+                            <a href="usuarios.php">Usuarios</a>
                         </li>
 
                         <li>
