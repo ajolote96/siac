@@ -1,5 +1,6 @@
 <?php
-    session_start();
+include "php/conexion.php";
+session_start();
 
     if($_SESSION['rpe'] == "matrix"){
         header("Location: matrix.php");
@@ -10,56 +11,19 @@
     else if($_SESSION['rpe'] != "admin" && $_SESSION['rpe'] != "adminzona" && $_SESSION['rpe'] != "admindivision"){
         header("Location: index.php");   
     }
-        
+$rpeObtenido = $_GET['rpe'];
+
+$query = "SELECT * FROM ejecutivo WHERE rpe = '".$rpeObtenido."'";
+
+$resultado = $conexion->query($query);
+$filas = $resultado->fetch_assoc();
+
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-            function validacion() {
-            var USER = document.formulario.rpe.value;
-            var PASS = document.formulario.pass.value;
-            var CAC = document.formulario.cac.value;
-
-            if (USER == "" | PASS == "" || CAC == "") {
-                alert("Campos Faltantes")
-                return false;
-            } else
-                return true;
-
-        } // TERMINA EL CODIgO JS PARA VALIDAR LOS CAMPOS
-
-        $(document).ready(function() {
-            $("#boton").on('click', function() {
-                if (validacion()) { ///Si los campos estan llenos
-                    var form = $('#formulario')[0];
-                    var data = new FormData(form);
-
-                    $.ajax({
-                        url: 'php/registro-usuario.php',
-                        type: 'POST',
-                        dataType: 'text',
-                        data: data,
-                        enctype: 'multipart/form-data',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function(respuesta) {
-                            if (respuesta == 0)
-                                alert('Registro incorrecto')
-                            else {
-                                alert('Registro Completado')
-                                location.href="usuarios.php";
-                            }
-                        }
-
-                    }); ///Fin del ajax
-                } ///Termina el if de la funcion de validacion 
-            }); ///Funcion de click en un boton
-        }); ///Fin de la funcion ready   
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,23 +35,49 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/styles-admin.css">
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-    <!-- HIGHCHARTS -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
+ 
+    <style>
+        .formulario-modificar label,
+        .formulario-modificar input {
+        display: block;
+        }
+
+        legend {
+        font-size: 2rem;
+        color: #534f4f;
+        }
+
+        label {
+        display: block;
+        font-weight: 700;
+        text-transform: uppercase;
+        }
+
+        .formulario-modificar input:not([type="submit"]),
+        textarea {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        background-color: #E1E1E1;
+        margin-bottom: 2rem;
+        border: none;
+        border-radius: 1rem;
+        }
+
+        .contenedor{
+            margin: 20px 30px;
+        }
+
+    </style>
 
 </head>
 
+
 <body>
-    <div class="wrapper">
+
+<div class="wrapper">
         <!-- Sidebar  -->
-<nav id="sidebar">
+        <nav id="sidebar">
             <div class="sidebar-header">
                 <a href="admin.php">
                 <h2>Menú</h2>
@@ -207,14 +197,14 @@
           
         </nav>
         
-        
+
         <!-- Page Content  -->
         <div id="content">
             <div class="header-content" style="display:flex; justify-content: space-between;">
                 <h2>Inicio</h2>
-                
-                <a href="static/php/cerrar-sesion.php" style="padding: 10px;" >Cerrar Sesión</a>
-            
+
+                <a href="static/php/cerrar-sesion.php" style="padding: 10px;">Cerrar Sesión</a>
+
             </div>
 
             <div class="logo">
@@ -223,27 +213,67 @@
                 </a>
             </div>
 
-            <div class="col-lg-12 text-center">
-            <br>
             <div id="contenido-principal">
-            <form id="formulario" name="formulario" enctype="multipart/form-data">
-            
-            <label>RPE:</label>
-            <input type="text" class="form-control" name="rpe">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <br>
+                            <br>
+                            <!-- Formulario -->
+                            <hr>
+<!-- 
+                            <form id="formulario" name="formulario" enctype="multipart/form-data">
 
-            <label>CONTRASEÑA:</label>
-            <input type="text" class="form-control" name="pass"> 
-            <label>CAC:</label>
-            <input type="text" class="form-control" name="cac">
-       
-            <hr><br>
-            <input id="boton" onclick="validacion()" class="btn btn-success" type="button" value="Registrar">
-            <a href="javascript:history.back()">Regresar</a>
-            </form>  
+                                <label>Campaña:</label>
+                                <input type="text" class="form-control" name="campaña">
+
+                                <label>Pregunta:</label>
+                                <input type="text" class="form-control" name="pregunta">
+                                <hr><br>
+                                <input id="boton" onclick="validacion()" class="btn btn-success" type="button" value="Registrar">
+                                <a href="javascript:history.back()">Regresar</a>
+                            </form> -->
+                            
+                            <form method="POST"  action="php/editarEjecutivo.php" class="formulario-modificar">
+                                <fieldset>
+                                    <legend>Modificar Ejecutivo</legend>
+
+                                    <label for="rpe">RPE</label>
+                                    <input type="text" name="rpe" id="rpe" value="<?php echo $filas['rpe'];?>" readonly>
+
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" id="nombre" value="<?php echo $filas['nombre'];?>" >
+
+                                    <label for="contrato">Contrato</label>
+                                    <input type="text" name="contrato" id="contrato" value="<?php echo $filas['contrato'];?>" >
+
+                                    <label for="correo">Correo</label>
+                                    <input type="text" name="correo" id="correo" value="<?php echo $filas['correo'];?>" >
+
+                                    <label for="celular">Celular</label>
+                                    <input type="text" name="celular" id="celular" value="<?php echo $filas['celular'];?>" >
+
+                                    <label for="puesto">Puesto Contratado</label>
+                                    <input type="text" name="puesto" id="puesto" value="<?php echo $filas['puesto_contratado'];?>" >
+
+                                    <input type="submit" name="" id="" value="EDITAR" class="btn-lg btn-success btn-block">
+                                </fieldset>
+                            </form>
+                            
+
+                            <!-- Fin Del Formulario -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            </div>
+
         </div>
+
     </div>
+
+
+
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -253,39 +283,39 @@
     <script src="js/jquery.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
+        $(document).ready(function() {
+            $('#sidebarCollapse').on('click', function() {
                 $('#sidebar').toggleClass('active');
-            }); 
+            });
         });
 
-        $('#ejecutivo').click(function () { 
+        $('#ejecutivo').click(function() {
             $("#contenido-principal").load("html/buscar.html");
 
         });
 
-        $('#ejecutivoCAC').click(function () { 
+        $('#ejecutivoCAC').click(function() {
             $("#contenido-principal").load("html/datos-ejecutivo.html");
 
         });
 
-        $('#motivoCAC').click(function () { 
+        $('#motivoCAC').click(function() {
             $("#contenido-principal").load("html/grafica-cac.html");
 
         });
 
-        $('#motivoZona').click(function () { 
+        $('#motivoZona').click(function() {
             $("#contenido-principal").load("html/grafica-zona.html");
 
         });
 
-        $('#motivoDivision').click(function () { 
+        $('#motivoDivision').click(function() {
             $("#contenido-principal").load("html/grafica-division.html");
 
         });
 
-        
     </script>
 </body>
+
 
 </html>

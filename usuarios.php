@@ -55,15 +55,16 @@
                 <p>Panel Administrativo</p>
             </a>
                 
-                <li class="active">
+ 
+                <!-- <li class="active">
                     <a href="#homeSubmenuMatrix" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Motivos de Visitas</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuMatrix">
                         
-                        <!-- <li>
+                        <li>
                             <a href="#">Motivo de Visitas</a>
                             Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
                         </li> 
-                        -->
+                       
                          <li id="motivoDivision">
                             <a href="#">División</a>
                         </li>
@@ -82,16 +83,23 @@
                        
                     </ul>
                 </li>                                                                                    
-                    
-                <li class="active">
+                 -->
+                 <li id="motivoCAC">
+                    <a href="#">Motivos de Visitas</a>
+                </li>
+
+                <li id="ejecutivoCAC">
+                    <a href="#">Resultado de Encuestas</a>
+                </li>
+                <!-- <li class="active">
                     <a href="#homeSubmenuEjecutivo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Evaluación de Ejecutivo</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuEjecutivo">
                         
-                        <!-- <li>
+                        <li>
                             <a href="#">Motivo de Visitas</a>
                             Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
                         </li> 
-                        -->
+                       
                          <li>
                             <a href="#">División</a>
                         </li>
@@ -109,16 +117,34 @@
                         </li>
                        
                     </ul>
-                </li>  
+                </li>   -->
+                
+                <!-- <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestión de Ejecutivo</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        
+                        <li>
+                            <a href="#">Alta</a>
+                        </li>
+                        <li>
+                            <a href="#">Baja</a>
+                        </li>
+                        <li>
+                            <a href="#">Modificación</a>
+                        </li>
+                    </ul>
+                </li> -->
                 <li id="ejecutivo">
                     <a href="#">Gestión de Ejecutivo</a>
                 </li>
 
                 <li>  
                     <a href="encuestas.php">Gestión de Encuestas</a>
+                    <!-- Alta, baja, modificar preguntas -->
                 </li> 
 
                 <li class="active">
+                    <!-- Sólo  jefes de cac, sólo podrá modificar lo de sus cacs  -->
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         

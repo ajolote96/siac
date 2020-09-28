@@ -34,7 +34,7 @@
                                     <td>".$fila['correo']."</td>
                                     <td>".$fila['puesto_contratado']."</td>
                                     <td>".$fila['estatus']."</td>   
-                                    <td><a class='btn btn-warning' href='php/editar-ejecutivo.php?rpe=".$fila['rpe']."'>Editar</a></td>                                 
+                                    <td><a class='btn btn-warning' href='editar-ejecutivo.php?rpe=".$fila['rpe']."'>Editar</a></td>                                 
                                     <td><a class='btn btn-danger' href='php/eliminar-ejecutivo.php?rpe=".$fila['rpe']."'>Eliminar</a></td>                                                                                                       
                                   </tr>";
                     }

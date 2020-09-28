@@ -3,7 +3,8 @@
 include "conexion.php";
 error_reporting(0);
 
-
+$division = $_POST['division'];
+$zona = $_POST['zona'];
 $cac = $_POST['cac'];
 $inicio = $_POST['fecha-inicio'];
 $fin = $_POST['fecha-fin'];

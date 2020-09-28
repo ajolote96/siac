@@ -74,12 +74,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <!-- HIGHCHARTS -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
+   
 
 </head>
 
@@ -88,22 +83,27 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
+                <a href="admin.php">
                 <h2>Menú</h2>
+                <a>
             </div>
 
             <ul class="list-unstyled components">
+            <a href="admin.php">
                 <p>Panel Administrativo</p>
-
-                <li class="active">
+            </a>
+                
+ 
+                <!-- <li class="active">
                     <a href="#homeSubmenuMatrix" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Motivos de Visitas</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuMatrix">
-
-                        <!-- <li>
+                        
+                        <li>
                             <a href="#">Motivo de Visitas</a>
                             Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
                         </li> 
-                        -->
-                        <li id="motivoDivision">
+                       
+                         <li id="motivoDivision">
                             <a href="#">División</a>
                         </li>
 
@@ -118,20 +118,27 @@
                         <li>
                             <a href="#">Generar Reporte Específico</a>
                         </li>
-
+                       
                     </ul>
+                </li>                                                                                    
+                 -->
+                 <li id="motivoCAC">
+                    <a href="#">Motivos de Visitas</a>
                 </li>
 
-                <li class="active">
+                <li id="ejecutivoCAC">
+                    <a href="#">Resultado de Encuestas</a>
+                </li>
+                <!-- <li class="active">
                     <a href="#homeSubmenuEjecutivo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Evaluación de Ejecutivo</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuEjecutivo">
-
-                        <!-- <li>
+                        
+                        <li>
                             <a href="#">Motivo de Visitas</a>
                             Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
                         </li> 
-                        -->
-                        <li>
+                       
+                         <li>
                             <a href="#">División</a>
                         </li>
 
@@ -146,35 +153,54 @@
                         <li>
                             <a href="#">Generar Reporte Específico</a>
                         </li>
-
+                       
                     </ul>
-                </li>
+                </li>   -->
+                
+                <!-- <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestión de Ejecutivo</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        
+                        <li>
+                            <a href="#">Alta</a>
+                        </li>
+                        <li>
+                            <a href="#">Baja</a>
+                        </li>
+                        <li>
+                            <a href="#">Modificación</a>
+                        </li>
+                    </ul>
+                </li> -->
                 <li id="ejecutivo">
                     <a href="#">Gestión de Ejecutivo</a>
                 </li>
 
-                <li>
+                <li>  
                     <a href="encuestas.php">Gestión de Encuestas</a>
-                </li>
+                    <!-- Alta, baja, modificar preguntas -->
+                </li> 
 
                 <li class="active">
+                    <!-- Sólo  jefes de cac, sólo podrá modificar lo de sus cacs  -->
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
-
+                        
                         <li id="usuarios">
-                            <a href="usuarios/index.php">Usuarios</a>
+                            <a href="usuarios.php">Usuarios</a>
                         </li>
 
                         <li>
                             <a href="#">Gestión de Sitios</a>
                         </li>
-
+                       
                     </ul>
-                </li>
-
-            </ul>
-
+                </li>               
+                
+            </ul>            
+          
         </nav>
+        
 
         <!-- Page Content  -->
         <div id="content">
