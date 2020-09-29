@@ -14,9 +14,9 @@
     $resultado = $conexion->query($query);
 
     if($resultado->num_rows > 0){
-        $salida.="<table class='tabla_datos'>
+        $salida.="<table class='table table-sm table-hover'>
                         <thead>
-                            <tr>
+                            <tr class='table-success'>
                                 <th>RPE</td>
                                 <th>Nombre</td>
                                 <th>Correo </td>
@@ -28,7 +28,7 @@
                     <tbody>";
 
                     while($fila= $resultado->fetch_assoc()){
-                        $salida.="<tr>
+                        $salida.="<tr class='list-group-item-action'>
                                     <td>".$fila['rpe']."</td>
                                     <td>".$fila['nombre']."</td>
                                     <td>".$fila['correo']."</td>
