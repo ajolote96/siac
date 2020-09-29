@@ -18,7 +18,7 @@ else if(isset($_POST['zona'])){
   $query = "SELECT motivo, COUNT(motivo) as motivoContador FROM motivos WHERE cac IN (SELECT cac FROM cac  WHERE zona = '".$zona."') AND fecha>='".$inicio."' and fecha<='".$fin."' GROUP BY motivo";
 }
 else{
-  $query = "SELECT motivo, COUNT(motivo) as motivoContador FROM motivos WHERE cac IN (SELECT cac FROM cac  WHERE division = '".$division."') AND fecha>='".$inicio."' and fecha<='".$fin."' GROUP BY motivo";
+  $query = "SELECT motivo, COUNT(motivo) as motivoContador FROM motivos WHERE cac IN (SELECT nombre FROM cac WHERE division = '".$division."') AND fecha>='".$inicio."' and fecha<='".$fin."' GROUP BY motivo";
 }
 
 
