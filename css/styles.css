@@ -636,7 +636,7 @@ width: 80%;
   }
 
 .table tr:hover{
-    cursor: pointer;
+    cursor: grab;
 }
 
 .table{
