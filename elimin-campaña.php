@@ -16,6 +16,57 @@
 <html>
 
 <head>
+<?php require "php/conecta.php";
+        $id=$_GET["id"];
+
+            $sql="SELECT * FROM campañas WHERE id='$id'";
+
+            $res=mysqli_query($con, $sql);
+            $row=mysqli_fetch_assoc($res);
+
+    ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+            function validacion() {
+            var USER = document.formulario.id.value;
+
+
+            if (USER == "" ) {
+                alert("Campos Faltantes")
+                return false;
+            } else
+                return true;
+
+        } // TERMINA EL CODIgO JS PARA VALIDAR LOS CAMPOS
+
+        $(document).ready(function() {
+            $("#boton").on('click', function() {
+                if (validacion()) { ///Si los campos estan llenos
+                    var form = $('#formulario')[0];
+                    var data = new FormData(form);
+                    $.ajax({
+                        url: 'php/eliminar-campaña.php',
+                        type: 'POST',
+                        dataType: 'text',
+                        data: data,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function(respuesta) {
+                            if (respuesta == 0)
+                                alert('Registro incorrecto')
+                            else {
+                                alert('Edicion Completada')
+                                location.href="encuestas.php";
+                            }
+                        }
+
+                    }); ///Fin del ajax
+                } ///Termina el if de la funcion de validacion 
+            }); ///Funcion de click en un boton
+        }); ///Fin de la funcion ready   
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +105,6 @@
             <a href="admin.php">
                 <p>Panel Administrativo</p>
             </a>
-            
                  <li id="motivoCAC">
                     <a href="#">Motivos de Visitas</a>
                 </li>
@@ -92,6 +142,7 @@
           
         </nav>
         
+        
         <!-- Page Content  -->
         <div id="content">
             <div class="header-content" style="display:flex; justify-content: space-between;">
@@ -106,49 +157,26 @@
                     <img style="width: 20%; margin-left: 50px;" src="img/cfe-suministros.jpg" alt="LOGO">
                 </a>
             </div>
+
             <div class="col-lg-12 text-center">
+            <br>
             <div id="contenido-principal">
-            <center>
-            <h2>Registrar nuevo Usuario:</h2>
-            <a class="btn btn-success" href="registrar-usuario.php">Registrar</a>
-            </center>
-            <table class='tabla_datos table-hover'>
-                    <thead>
-                        <tr>
-                            <th>RPE</th>
-                            <th>CAC</th>
-                            <th>Editar</th>
-                            <th>Borrar</th>
-                        </tr>
-                    </thead>
+            <form id="formulario" name="formulario" enctype="multipart/form-data">
+                                <label>Identificador:</label>
+                                <input type="number" class="form-control" name="id" readonly value="<?= $row['id'] ?>">
 
+                                <label>Campaña:</label>
+                                <input type="text" class="form-control" name="nombre" readonly value="<?= $row['nombre'] ?>">
 
-                    <?php
-                require "php/conecta.php";
-                $sql = "SELECT * FROM usuario WHERE eliminado='0' ";
-                $res = mysqli_query($con, $sql);
-                $num = mysqli_num_rows($res);
-            
-            for($i = $num; $objeto = $res->fetch_object() ; $i++)
-            {
-                ?>
-
-                    <tbody>
-                        <tr>
-                            <td><?= $objeto->rpe?></td>
-                            <td><?= $objeto->cac?></td>
-                            <td><button type="button" class="btn btn-warning"><a href="edicion-usuario.php?rpe=<?=$objeto->rpe?>">Editar</button></a></td>
-                            <td><button type="button" class="btn btn-danger"><a href="eliminar-usuario.php?rpe=<?=$objeto->rpe?>">Eliminar</button></a></td>
-                            
-                            
-                        </tr>
-
-
-            <?php
-            }
-            ?>
-                    </tbody>
-                </table>
+                                <label>Fecha de inicio:</label>
+                                <input type="date" class="form-control" name="inicio" readonly value="<?= $row['fechaInicio'] ?>">
+                                <label>Fecha de finalización:</label>
+                                <input type="date" class="form-control" name="fin" readonly value="<?= $row['fechaFin'] ?>">
+                                
+                                <hr><br>
+                                <input id="boton" onclick="validacion()" class="btn btn-danger" type="button" value="Eliminar">
+                                <a href="javascript:history.back()">Regresar</a>
+                            </form>
             </div>
             </div>
         </div>

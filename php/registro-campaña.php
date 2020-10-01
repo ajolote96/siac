@@ -2,11 +2,15 @@
 require "conecta.php";
 ///Recibe Variables
 
-$identificador = $_POST['id'];
 $campana=$_POST['campaña'];
-$pregunta=$_POST['preguntas'];
+$inicio=$_POST['inicio'];
+$final=$_POST['fin'];
+
+
 //Inserta en DB
-$sql = "UPDATE preguntas SET campaña='$campana', preguntas='$pregunta' WHERE id='$identificador'";
+$sql = "INSERT INTO campañas VALUES (0,'$campana','$inicio','$final',0)";
+
+
 ///true o false (si el codigo de Sql ingresado esta correcto)
 $respuesta = mysqli_query($con, $sql);
 
