@@ -54,36 +54,6 @@
             <a href="admin.php">
                 <p>Panel Administrativo</p>
             </a>
-                
- 
-                <!-- <li class="active">
-                    <a href="#homeSubmenuMatrix" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Motivos de Visitas</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenuMatrix">
-                        
-                        <li>
-                            <a href="#">Motivo de Visitas</a>
-                            Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
-                        </li> 
-                       
-                         <li id="motivoDivision">
-                            <a href="#">División</a>
-                        </li>
-
-                        <li id="motivoZona">
-                            <a href="#">Zona</a>
-                        </li>
-
-                        <li id="motivoCAC">
-                            <a href="#">CAC</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Generar Reporte Específico</a>
-                        </li>
-                       
-                    </ul>
-                </li>                                                                                    
-                 -->
                  <li id="motivoCAC">
                     <a href="#">Motivos de Visitas</a>
                 </li>
@@ -91,49 +61,6 @@
                 <li id="ejecutivoCAC">
                     <a href="#">Resultado de Encuestas</a>
                 </li>
-                <!-- <li class="active">
-                    <a href="#homeSubmenuEjecutivo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Evaluación de Ejecutivo</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenuEjecutivo">
-                        
-                        <li>
-                            <a href="#">Motivo de Visitas</a>
-                            Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
-                        </li> 
-                       
-                         <li>
-                            <a href="#">División</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Zona</a>
-                        </li>
-
-                        <li id="ejecutivoCAC">
-                            <a href="#">CAC</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Generar Reporte Específico</a>
-                        </li>
-                       
-                    </ul>
-                </li>   -->
-                
-                <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestión de Ejecutivo</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        
-                        <li>
-                            <a href="#">Alta</a>
-                        </li>
-                        <li>
-                            <a href="#">Baja</a>
-                        </li>
-                        <li>
-                            <a href="#">Modificación</a>
-                        </li>
-                    </ul>
-                </li> -->
                 <li id="ejecutivo">
                     <a href="#">Gestión de Ejecutivo</a>
                 </li>
@@ -180,15 +107,13 @@
             </div>
             <div class="col-lg-12 text-center">
             <div id="contenido-principal">
-            <center>
             <h2>Registrar nueva Pregunta:</h2>
             <a class="btn btn-success" href="registrar-encuesta.php">Registrar</a>
-            </center>
+            
             <div id="agregar" style="marigin: 20px;"> 
         <table class='tabla_datos table-hover' style="marigin: 20px;">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>CAMPAÑA</th>
                     <th>PREGUNTA</th>
                     <th>Editar</th>
@@ -206,7 +131,6 @@
                     ?>
                         <tbody>
                             <tr>
-                                <td><?= $objeto->id?></td>
                                 <td><?= $objeto->campaña?></td>
                                 <td><?= $objeto->preguntas?></td>
                                 <td><a class="btn btn-warning" href="edicion-encuesta.php?id=<?=$objeto->id?>">Editar</a></td>
@@ -221,6 +145,50 @@
             </div>
             </div>
         </div>
+        <hr>
+        <div class="col-lg-12 text-center">
+            <div id="contenido-principal">
+            <h2>Registrar nueva Campaña:</h2>
+            <a class="btn btn-success" href="registrar-campaña.php">Registrar</a>
+            
+            <div id="agregar" style="marigin: 20px;"> 
+        <table class='tabla_datos table-hover' style="marigin: 20px;">
+            <thead>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>INICIO</th>
+                    <th>FIN</th>
+                    <th>EDITAR</th>
+                    <th>ELIMINAR</th>
+                </tr>
+            </thead>
+            <?php
+                require "php/conecta.php";
+                $sql = "SELECT * FROM campañas WHERE eliminado=0";
+                $res = mysqli_query($con, $sql);
+                $num = mysqli_num_rows($res);
+                
+                for($i = $num; $objeto = $res->fetch_object() ; $i++)
+                {
+                    ?>
+                        <tbody>
+                            <tr>
+                                <td><?= $objeto->nombre?></td>
+                                <td><?= $objeto->fechaInicio?></td>
+                                <td><?= $objeto->fechaFin?></td>
+                                <td><a class="btn btn-warning" href="edicion-campaña.php?id=<?=$objeto->id?>">Editar</a></td>
+                                <td><a class="btn btn-danger" href="elimin-campaña.php?id=<?=$objeto->id?>">Eliminar</a></td>
+                            </tr>
+                        </tbody>
+                <?php
+                    }
+                    ?>
+            </table>
+            </div>
+            </div>
+        </div>
+        <br><br>
+        
     </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

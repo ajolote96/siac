@@ -4,9 +4,11 @@ require "conecta.php";
 
 $identificador = $_POST['id'];
 $campana=$_POST['campaña'];
-$pregunta=$_POST['preguntas'];
+$inicio=$_POST['inicio'];
+$final=$_POST['fin'];
+
 //Inserta en DB
-$sql = "UPDATE preguntas SET campaña='$campana', preguntas='$pregunta' WHERE id='$identificador'";
+$sql = "UPDATE campañas SET nombre='$campana', fechaInicio='$inicio', fechaFin='$final' WHERE id='$identificador'";
 ///true o false (si el codigo de Sql ingresado esta correcto)
 $respuesta = mysqli_query($con, $sql);
 
