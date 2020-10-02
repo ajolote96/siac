@@ -15,7 +15,6 @@
     // $fin = "2020-01-25";
 
 
-
     $salida = "";
     //$query = "SELECT * FROM reacciones WHERE cac='".$cac."' and fecha>='".$inicio."' and fecha<='".$fin."' ORDER BY rpe";
     //$query = "SELECT rpe, cac, SUM(great), SUM(good), SUM(ok), SUM(bad) FROM reacciones ///////WHERE cac='".$cac."' and fecha>='".$inicio."' and fecha<='".$fin."' GROUP BY rpe";
@@ -42,7 +41,7 @@
     endif;
 
     $salida.="
-    <table class='container table table-striped'>
+    <table class='container table table-hover'>
                     <thead>
                         <tr>
                             <th>RPE</td>
@@ -56,15 +55,14 @@
                 <tbody>";
 
     while($fila= $resultado->fetch_assoc()){
-        $salida.="<tr>
+        $salida.="<tr class='list-group-item-action' onclick='ejemplo();' data-value=".$fila['rpe'].">
                     <td>".$fila['rpe']."</td>
                     <td>".$fila['cac']."</td>
                     <td>".$fila['SUM(great)']."</td>
                     <td>".$fila['SUM(good)']."</td>
                     <td>".$fila['SUM(ok)']."</td>
-                    <td>".$fila['SUM(bad)']."</td>
-                
-                    </tr>";
+                    <td>".$fila['SUM(bad)']."</td>                
+                  </tr>";
     }
             
     $salida.="</tbody></table>";
