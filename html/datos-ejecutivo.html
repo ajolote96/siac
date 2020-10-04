@@ -74,12 +74,34 @@
 </div>
 
 <div id="contenedor"></div>
+<div id="resumen"></div>
 
 </body>
 
 <script src="js/jquery.js"></script>
 
 <script>
+
+    function ejemplo(){
+
+        $(".table").on('click','.list-group-item-action',function(e){
+            e.preventDefault();
+            const id = $(this).data('value');
+            alert(id);
+        }),
+       
+        $.ajax({
+            type: "POST",
+            url: "php/resumen-ejecutivo.php",
+            data: $('tablafrm').serialize(),
+            dataType: "json",
+            success: function (response) {                
+                   $('#resumen').show();
+                   $('#resumen').html(response);
+            }
+        });
+    }
+
         $('#send-tabla').click(function(){
             $.ajax({
                 type: "POST",
