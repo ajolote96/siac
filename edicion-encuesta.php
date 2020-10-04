@@ -17,13 +17,6 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <?php require "php/conecta.php";
-            $identificador=$_GET['id'];
-            $sql="SELECT * FROM preguntas WHERE id='$identificador'";
-
-            $res=mysqli_query($con, $sql);
-            $row=mysqli_fetch_assoc($res);
-    ?>
     <script>
         <?php require "php/conecta.php";
             $identificador=$_GET['id'];

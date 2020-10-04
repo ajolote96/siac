@@ -142,13 +142,8 @@
                     }
                     ?>
             </table>
-            </div>
-            </div>
-        </div>
-        <hr>
-        <div class="col-lg-12 text-center">
-            <div id="contenido-principal">
-            <h2>Registrar nueva Campaña:</h2>
+            
+             <h2>Registrar nueva Campaña:</h2>
             <a class="btn btn-success" href="registrar-campaña.php">Registrar</a>
             
             <div id="agregar" style="marigin: 20px;"> 
@@ -185,8 +180,17 @@
                     ?>
             </table>
             </div>
+            
+            
+            
+            
+            
+            </div>
             </div>
         </div>
+        <hr>
+
+           
         <br><br>
         
     </div>
