@@ -70,22 +70,22 @@
             <div class="faces">            
 
                 <div>
-                    <img src="img/contrato.png" alt="contrato" name="contrato" id="contrato" class="face-ico-principal">
+                    <img src="img/contrato1.png" alt="contrato" name="contrato" id="contrato" class="face-ico-principal">
                     <p class="ico-information">Contrato</p>
                 </div>
 
                 <div>
-                    <img src="img/pago.png" alt="pago" name="pago" id="pago" class="face-ico-principal">
+                    <img src="img/dinero1.png" alt="pago" name="pago" id="pago" class="face-ico-principal">
                     <p class="ico-information">Pago</p>
                 </div>
 
                 <div>
-                    <img src="img/queja.png" alt="queja" name="queja" id="queja" class="face-ico-principal">
+                    <img src="img/queja1.png" alt="queja" name="queja" id="queja" class="face-ico-principal">
                     <p class="ico-information">Queja</p>
                 </div>
 
                 <div>
-                    <img src="img/informacion.png" alt="informacion" name="informacion" id="informacion" class="face-ico-principal">
+                    <img src="img/informacion1.png" alt="informacion" name="informacion" id="informacion" class="face-ico-principal">
                     <p class="ico-information">información</p class="ico-information">
                 </div>
 
