@@ -9,7 +9,7 @@ $pregunta   =  $_POST['ask'];
 echo $campana;
 echo $pregunta;
 
-$sql = "INSERT INTO preguntas VALUES (0,'$campana','$pregunta',0)";
+$sql = "INSERT INTO preguntas VALUES (0,'$pregunta','$campana',0)";
 
 ///true o false (si el codigo de Sql ingresado esta correcto)
 $respuesta = mysqli_query($con, $sql);
