@@ -74,31 +74,63 @@
 </div>
 
 <div id="contenedor"></div>
-<div id="resumen" style="display: none;">Hola</div>
+
+<div class="modal" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="tituloVentana">Resumen de Ejecutivo</h2>
+                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" type="button" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="js/jquery.js"></script>
 <script>
      $(document).on('click', '.list-group-item-action', function() {
-         var valor = $(this).attr('name');
+         var valor = $(this).attr('value');
          var json = $('#tablafrm').serializeArray();
+         var cac = $(this).attr('name');
          
          var data = new Object();
          data.name = "rpe";
          data.value=valor;
-        json.push(data);
+         json.push(data);
 
-var string = JSON.stringify(json);
+         var objeto = new Object();
+         objeto.name = "cac";
+         objeto.value=cac;
+         json.push(objeto);
+        
+        // console.log(json);
 
-        console.log(string);
+        var string = JSON.stringify(json);
+
+        // console.log(string);
         $.ajax({
             type: "POST",
             url: "php/resumen-ejecutivo.php",
-            data: string,
+            data: {data: string},
             dataType: "json",
-            success: function (response) {                
-                   $('#resumen').show();
-                   console.log(response);
-                //    $('#resumen').html(response);
+            success: function (response) {   
+
+                if(response.error){
+                        $('.error').slideDown('slow');
+                        // $('#contenedor').hide();
+                        setTimeout(function() {
+                            $('.error').slideUp('slow');
+                        }, 3000);   
+                        return;     
+                    }
+                   $('.modal-body').html(response);
             }
         })
     

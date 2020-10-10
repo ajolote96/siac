@@ -55,7 +55,7 @@
                 <tbody>";
 
     while($fila= $resultado->fetch_assoc()){
-        $salida.="<tr class='list-group-item-action' name = ".$fila['rpe'].">
+        $salida.="<tr data-toggle='modal' data-target='#ventanaModal' class='list-group-item-action' name=".$fila['cac']." value = ".$fila['rpe'].">
                     <td>".$fila['rpe']."</td>
                     <td>".$fila['cac']."</td>
                     <td>".$fila['SUM(great)']."</td>
@@ -65,7 +65,9 @@
                   </tr>";
     }
             
-    $salida.="</tbody></table>";
+    $salida.="</tbody></table>
+    
+    <div id='prueba'></div>";
 
     echo json_encode($salida);
             

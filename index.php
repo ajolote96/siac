@@ -38,7 +38,7 @@
     </div>
     <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
-            <div class="modal-content">
+            <div class="modal-content contenido-modal">
                 <div class="col-12 user-img">
                     <img src="static/img/user.png" />
                 </div>

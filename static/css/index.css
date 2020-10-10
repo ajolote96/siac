@@ -11,7 +11,7 @@ body {
     padding: 0;
 }
 
-.modal-content {
+.contenido-modal{
     background-color: #3b4652;
     opacity: .85;
     padding: 0 20px;
