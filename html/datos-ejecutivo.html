@@ -74,33 +74,38 @@
 </div>
 
 <div id="contenedor"></div>
-<div id="resumen"></div>
-
-</body>
+<div id="resumen" style="display: none;">Hola</div>
 
 <script src="js/jquery.js"></script>
-
 <script>
+     $(document).on('click', '.list-group-item-action', function() {
+         var valor = $(this).attr('name');
+         var json = $('#tablafrm').serializeArray();
+         
+         var data = new Object();
+         data.name = "rpe";
+         data.value=valor;
+        json.push(data);
 
-    function ejemplo(){
+var string = JSON.stringify(json);
 
-        $(".table").on('click','.list-group-item-action',function(e){
-            e.preventDefault();
-            const id = $(this).data('value');
-            alert(id);
-        }),
-       
+        console.log(string);
         $.ajax({
             type: "POST",
             url: "php/resumen-ejecutivo.php",
-            data: $('tablafrm').serialize(),
+            data: string,
             dataType: "json",
             success: function (response) {                
                    $('#resumen').show();
-                   $('#resumen').html(response);
+                   console.log(response);
+                //    $('#resumen').html(response);
             }
-        });
-    }
+        })
+    
+    });
+</script>
+
+<script>
 
         $('#send-tabla').click(function(){
             $.ajax({
@@ -124,5 +129,7 @@
             });
         });
 </script>
+
+</body>
 
 </html>

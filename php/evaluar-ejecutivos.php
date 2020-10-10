@@ -55,7 +55,7 @@
                 <tbody>";
 
     while($fila= $resultado->fetch_assoc()){
-        $salida.="<tr class='list-group-item-action' onclick='ejemplo();' data-value=".$fila['rpe'].">
+        $salida.="<tr class='list-group-item-action' name = ".$fila['rpe'].">
                     <td>".$fila['rpe']."</td>
                     <td>".$fila['cac']."</td>
                     <td>".$fila['SUM(great)']."</td>

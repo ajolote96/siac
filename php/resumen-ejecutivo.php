@@ -3,13 +3,11 @@ require 'conexion.php';
 session_start();
 error_reporting(0);
 
+echo(json_decode($_POST['string'], true));
 
-$cac = $_POST['cac'];
-$inicio = $_POST['fecha-inicio'];
-$fin = $_POST['fecha-fin'];
+// $salida = "";
 
-$salida = "";
+// $query = "SELECT * FROM reacciones WHERE rpe = '".$rpe."' and fecha>= '".$inicio."' and fecha<= '".$fin."' ";
 
-$query = "SELECT * FROM reacciones WHERE rpe = '".$rpe."' and fecha>= '".$inicio."' and fecha<= '".$fin."' ";
-
+// echo $rpe;
 ?>
