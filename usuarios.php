@@ -36,7 +36,7 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
+
 
 </head>
 
@@ -46,16 +46,16 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <a href="admin.php">
-                <h2>Menú</h2>
-                <a>
+                    <h2>Menú</h2>
+                    <a>
             </div>
 
             <ul class="list-unstyled components">
-            <a href="admin.php">
-                <p>Panel Administrativo</p>
-            </a>
-            
-                 <li id="motivoCAC">
+                <a href="admin.php">
+                    <p>Panel Administrativo</p>
+                </a>
+
+                <li id="motivoCAC">
                     <a href="#">Motivos de Visitas</a>
                 </li>
 
@@ -67,38 +67,38 @@
                     <a href="#">Gestión de Ejecutivo</a>
                 </li>
 
-                <li>  
+                <li>
                     <a href="encuestas.php">Gestión de Encuestas</a>
                     <!-- Alta, baja, modificar preguntas -->
-                </li> 
+                </li>
 
                 <li class="active">
                     <!-- Sólo  jefes de cac, sólo podrá modificar lo de sus cacs  -->
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
-                        
+
                         <li id="usuarios">
                             <a href="usuarios.php">Usuarios</a>
                         </li>
 
                         <li>
-                            <a href="#">Gestión de Sitios</a>
+                            <a href="sitios.php">Gestión de Sitios</a>
                         </li>
-                       
+
                     </ul>
-                </li>               
-                
-            </ul>            
-          
+                </li>
+
+            </ul>
+
         </nav>
-        
+
         <!-- Page Content  -->
         <div id="content">
             <div class="header-content" style="display:flex; justify-content: space-between;">
                 <h2>Inicio</h2>
-                
-                <a href="static/php/cerrar-sesion.php" style="padding: 10px;" >Cerrar Sesión</a>
-            
+
+                <a href="static/php/cerrar-sesion.php" style="padding: 10px;">Cerrar Sesión</a>
+
             </div>
 
             <div class="logo">
@@ -107,23 +107,23 @@
                 </a>
             </div>
             <div class="col-lg-12 text-center">
-            <div id="contenido-principal">
-            <center>
-            <h2>Registrar nuevo Usuario:</h2>
-            <a class="btn btn-success" href="registrar-usuario.php">Registrar</a>
-            </center>
-            <table class='tabla_datos table-hover'>
-                    <thead>
-                        <tr>
-                            <th>RPE</th>
-                            <th>CAC</th>
-                            <th>Editar</th>
-                            <th>Borrar</th>
-                        </tr>
-                    </thead>
+                <div id="contenido-principal">
+                    <center>
+                        <h2>Registrar nuevo Usuario:</h2>
+                        <a class="btn btn-success" href="registrar-usuario.php">Registrar</a>
+                    </center>
+                    <table class='tabla_datos table-hover'>
+                        <thead>
+                            <tr>
+                                <th>RPE</th>
+                                <th>CAC</th>
+                                <th>Editar</th>
+                                <th>Borrar</th>
+                            </tr>
+                        </thead>
 
 
-                    <?php
+                        <?php
                 require "php/conecta.php";
                 $sql = "SELECT * FROM usuario WHERE eliminado='0' ";
                 $res = mysqli_query($con, $sql);
@@ -133,23 +133,23 @@
             {
                 ?>
 
-                    <tbody>
-                        <tr>
-                            <td><?= $objeto->rpe?></td>
-                            <td><?= $objeto->cac?></td>
-                            <td><button type="button" class="btn btn-warning"><a href="edicion-usuario.php?rpe=<?=$objeto->rpe?>">Editar</button></a></td>
-                            <td><button type="button" class="btn btn-danger"><a href="eliminar-usuario.php?rpe=<?=$objeto->rpe?>">Eliminar</button></a></td>
-                            
-                            
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td><?= $objeto->rpe?></td>
+                                <td><?= $objeto->cac?></td>
+                                <td><button type="button" class="btn btn-warning"><a href="edicion-usuario.php?rpe=<?=$objeto->rpe?>">Editar</button></a></td>
+                                <td><button type="button" class="btn btn-danger"><a href="eliminar-usuario.php?rpe=<?=$objeto->rpe?>">Eliminar</button></a></td>
 
 
-            <?php
+                            </tr>
+
+
+                            <?php
             }
             ?>
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -162,38 +162,37 @@
     <script src="js/jquery.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
+        $(document).ready(function() {
+            $('#sidebarCollapse').on('click', function() {
                 $('#sidebar').toggleClass('active');
-            }); 
+            });
         });
 
-        $('#ejecutivo').click(function () { 
+        $('#ejecutivo').click(function() {
             $("#contenido-principal").load("html/buscar.html");
 
         });
 
-        $('#ejecutivoCAC').click(function () { 
+        $('#ejecutivoCAC').click(function() {
             $("#contenido-principal").load("html/datos-ejecutivo.html");
 
         });
 
-        $('#motivoCAC').click(function () { 
+        $('#motivoCAC').click(function() {
             $("#contenido-principal").load("html/grafica-cac.html");
 
         });
 
-        $('#motivoZona').click(function () { 
+        $('#motivoZona').click(function() {
             $("#contenido-principal").load("html/grafica-zona.html");
 
         });
 
-        $('#motivoDivision').click(function () { 
+        $('#motivoDivision').click(function() {
             $("#contenido-principal").load("html/grafica-division.html");
 
         });
 
-        
     </script>
 </body>
 

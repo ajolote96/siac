@@ -121,7 +121,7 @@
                         </li>
 
                         <li>
-                            <a href="#">Gestión de Sitios</a>
+                            <a href="sitios.php">Gestión de Sitios</a>
                         </li>
 
                     </ul>

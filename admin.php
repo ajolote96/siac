@@ -146,9 +146,8 @@
                         <li id="usuarios">
                             <a href="usuarios.php">Usuarios</a>
                         </li>
-
                         <li>
-                            <a href="#">Gestión de Sitios</a>
+                            <a href="sitios.php">Gestión de Sitios</a>
                         </li>
                        
                     </ul>
