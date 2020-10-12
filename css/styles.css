@@ -498,7 +498,7 @@ width: 80%;
     margin-top: 5%;
 }
 
-.modal-content{
+.contenido-modal{
     background-color: rgba(0, 0, 0, 0.5);
     opacity: .85;
     box-shadow: 0px 0px 3px #848484;
@@ -641,4 +641,11 @@ width: 80%;
 
 .table{
     text-align: center;
+}
+
+#resumen{
+    top: 50%;
+    left: 50%; 
+    position: absolute;
+   
 }

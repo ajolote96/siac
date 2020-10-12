@@ -74,33 +74,70 @@
 </div>
 
 <div id="contenedor"></div>
-<div id="resumen"></div>
 
-</body>
+<div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="tituloVentana">Resumen de Ejecutivo</h2>
+                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" type="button" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="js/jquery.js"></script>
-
 <script>
+     $(document).on('click', '.list-group-item-action', function() {
+         var valor = $(this).attr('value');
+         var json = $('#tablafrm').serializeArray();
+         var cac = $(this).attr('name');
+         
+         var data = new Object();
+         data.name = "rpe";
+         data.value=valor;
+         json.push(data);
 
-    function ejemplo(){
+         var objeto = new Object();
+         objeto.name = "cac";
+         objeto.value=cac;
+         json.push(objeto);
+        
+        // console.log(json);
 
-        $(".table").on('click','.list-group-item-action',function(e){
-            e.preventDefault();
-            const id = $(this).data('value');
-            alert(id);
-        }),
-       
+        var string = JSON.stringify(json);
+
+        // console.log(string);
         $.ajax({
             type: "POST",
             url: "php/resumen-ejecutivo.php",
-            data: $('tablafrm').serialize(),
+            data: {data: string},
             dataType: "json",
-            success: function (response) {                
-                   $('#resumen').show();
-                   $('#resumen').html(response);
+            success: function (response) {   
+
+                if(response.error){
+                        $('.error').slideDown('slow');
+                        // $('#contenedor').hide();
+                        setTimeout(function() {
+                            $('.error').slideUp('slow');
+                        }, 3000);   
+                        return;     
+                    }
+                   $('.modal-body').html(response);
             }
-        });
-    }
+        })
+    
+    });
+</script>
+
+<script>
 
         $('#send-tabla').click(function(){
             $.ajax({
@@ -124,5 +161,7 @@
             });
         });
 </script>
+
+</body>
 
 </html>
