@@ -27,7 +27,8 @@ if($cac=="santa"){
 //   else{
     // $query = "SELECT * FROM reacciones WHERE rpe = '".$rpe."' and cac IN (SELECT nombre FROM cac WHERE division = '".$division."') AND fecha>='".$inicio."' and fecha<='".$fin."' ";
 //   }
-$query = "SELECT * FROM reacciones WHERE cac = '".$cac."' and rpe = '".$rpe."' and fecha>='".$inicio."' and fecha<='".$fin."' ";
+$query = " SELECT idPregunta, campaña, SUM(great) AS sumGreat, SUM(good) AS sumGood, SUM(ok) AS sumOk, SUM(bad) AS sumBad FROM reacciones WHERE rpe='".$rpe."' AND cac='".$cac."' AND fecha>='".$inicio."' AND fecha<='".$fin."' GROUP BY idPregunta, campaña;
+";
 
 $resultado= $conexion->query($query);
 
@@ -42,7 +43,10 @@ $salida.="
                         <tr>
                             <th>Campaña</td>
                             <th>Pregunta</td>
-                            <th>Respuesta</td>                            
+                            <th>Muy bien</td>                            
+                            <th>Bien</td>                            
+                            <th>Regular</td>                            
+                            <th>Mal</td>                            
                         </tr>
                     </thead>
                 <tbody>";
@@ -56,20 +60,24 @@ $salida.="
 
             $filas_pregunta = $respuesta->fetch_assoc();
 
-            if($fila['great'] == 1){
-                $reaccion_dato = "Muy bien";
-            }else if($fila['good'] == 1){
-                $reaccion_dato = "Bien";
-            }else if($fila['ok'] == 1){
-                $reaccion_dato = "Regular";
-            }else{               
-                $reaccion_dato = "Mal";
-            }
+            // if($fila['great'] == 1){
+            //     $reaccion_dato = "Muy bien";
+            // }else if($fila['good'] == 1){
+            //     $reaccion_dato = "Bien";
+            // }else if($fila['ok'] == 1){
+            //     $reaccion_dato = "Regular";
+            // }else{               
+            //     $reaccion_dato = "Mal";
+            // }
 
             $salida.="<tr class='list-group-item-action'>
                             <td>".$fila['campaña']."</td>
                             <td>".$filas_pregunta['preguntas']."</td>  
-                            <td>$reaccion_dato</td>                                  
+                            <td>".$fila['sumGreat']."</td>      
+                            <td>".$fila['sumGood']."</td>                              
+                            <td>".$fila['sumOk']."</td>                              
+                            <td>".$fila['sumBad']."</td>                              
+
                       </tr>";
         }
                 
