@@ -164,7 +164,7 @@
 
 
         setTimeout(function() {                                       
-            location = 'matrix.html';
+            location = 'matrix.php';
         }, 3000); 
     }
     // document.getElementById("informacion").innerHTML = "Hola";
