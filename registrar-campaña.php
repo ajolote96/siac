@@ -16,14 +16,12 @@
 <html>
 
 <head>
+
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
             function validacion() {
             var CAMP = document.formulario.campaña.value;
-            var BEG = document.formulario.inicio.value;
-            var END = document.formulario.fin.value;
-
-            if (CAMP == "" | BEG == ""  | END == "") {
+            if (CAMP == "") {
                 alert("Campos Faltantes")
                 return false;
             } else
@@ -34,18 +32,18 @@
         $(document).ready(function() {
             $("#boton").on('click', function() {
                 if (validacion()) { ///Si los campos estan llenos
-                    var form = $('#formulario')[0];
-                    var data = new FormData(form);
-
+                    var CAMP = document.formulario.campaña.value;
+                    var ini = document.formulario.inicio.value;
+                    var final = document.formulario.fin.value;
+                    var site = $('#sitio option:selected').text();
+                    var zone = $('#zona option:selected').text();
+                    var divition = $('#division option:selected').text();
                     $.ajax({
                         url: 'php/registro-campaña.php',
                         type: 'POST',
                         dataType: 'text',
-                        data: data,
-                        enctype: 'multipart/form-data',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
+                        data: {campaña:CAMP, inicio:ini, fin:final, sitio:site, zona:zone, division:divition},
+            
                         success: function(respuesta) {
                             if (respuesta == 0)
                                 alert('Registro incorrecto')
@@ -131,7 +129,6 @@
           
         </nav>
         
-
         <!-- Page Content  -->
         <div id="content">
             <div class="header-content" style="display:flex; justify-content: space-between;">
@@ -160,16 +157,99 @@
 
                                 <label>Nombre de la Campaña:</label>
                                 <input type="text" class="form-control" name="campaña">
+                                
                                 <br>
                                 <label>Fecha de inicio:</label><br><input type="date" class="form-control" name="inicio">
                                 <br><br>
                                 <label>Fecha de finalización:</label><br><input type="date" class="form-control" name="fin">
                                 <br><br>
+                                <div class="row">
+
+
+                                    <!--Primera Nota-->
+                                    <div id="primera" class="col-sm-4">
+                                        <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Division</h5>
+                                            <select name="selec" id="division" >
+                                            <option selected value="0">- Seleccione una opción -</option>
+                                            
+                                            <?php
+                                            require "php/conecta.php";
+                                            $sql = "SELECT DISTINCT division FROM sitios WHERE eliminado=1";
+                                            $res = mysqli_query($con, $sql);
+                                            $num = mysqli_num_rows($res);
+
+                                            for($i = $num; $objeto = $res->fetch_object() ; $i++)
+                                            {
+                                                ?>
+                                                    <option name="division" class="form-control" 
+                                                    value="<?=$objeto->division?>"><?= $objeto->division?></option> 
+                                                <?php
+                                            }
+                                            ?>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!--Segunda Nota-->
+                                    <div id="segunda" style="display: none" class="col-sm-4">
+                                        <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zona</h5>
+                                            <select name="selec" id="zona" >
+                                            <option selected value="0">- Seleccione una opción -</option>
+                                            <?php
+                                            require "php/conecta.php";
+                                            $sql = "SELECT * FROM sitios WHERE eliminado=1";
+                                            $res = mysqli_query($con, $sql);
+                                            $num = mysqli_num_rows($res);
+
+                                            for($i = $num; $objeto = $res->fetch_object() ; $i++)
+                                            {
+                                                ?>
+                                                    <option name="zona" class="form-control" 
+                                                    value="<?=$objeto->zona?>"><?= $objeto->zona?></option>  
+                                                <?php
+                                            }
+                                            ?>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!--Tercera Nota-->
+                                    <div id="tercera" style="display: none" class="col-sm-4">
+                                        <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Centro de Atención</h5>
+                                            <select name="selec" id="sitio" >
+                                            <option selected value="0">- Seleccione una opción -</option>
+                                            
+                                            <?php
+                                            require "php/conecta.php";
+                                            $sql = "SELECT * FROM sitios WHERE eliminado=1";
+                                            $res = mysqli_query($con, $sql);
+                                            $num = mysqli_num_rows($res);
+
+                                            for($i = $num; $objeto = $res->fetch_object() ; $i++)
+                                            {
+                                                ?>
+                                                    <option name="sitio" class="form-control" 
+                                                    value="<?=$objeto->nombre?>"><?= $objeto->nombre?></option> 
+                                                <?php
+                                            }
+                                            ?>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                                 <hr><br>
                                 <input id="boton" onclick="validacion()" class="btn btn-success" type="button" value="Registrar">
                                 <a href="javascript:history.back()">Regresar</a>
                             </form>
-
+                            <br>
                             <!-- Fin Del Formulario -->
                         </div>
                     </div>
@@ -180,6 +260,22 @@
         </div>
 
     </div>
+
+    <script>
+        $(function(){
+            $("#division").change(function(){
+                $("#segunda").show("slow");
+            });
+            $("#zona").change(function(){
+                $("#tercera").show("slow");
+            });
+            $("#division").change(function () { 
+               var valorSeleccionado = $(this).children(":selected").text();
+            });
+
+        });
+    
+    </script>
 
 
 

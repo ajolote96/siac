@@ -114,36 +114,6 @@
             <a href="admin.php">
                 <p>Panel Administrativo</p>
             </a>
-                
- 
-                <!-- <li class="active">
-                    <a href="#homeSubmenuMatrix" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Motivos de Visitas</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenuMatrix">
-                        
-                        <li>
-                            <a href="#">Motivo de Visitas</a>
-                            Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
-                        </li> 
-                       
-                         <li id="motivoDivision">
-                            <a href="#">División</a>
-                        </li>
-
-                        <li id="motivoZona">
-                            <a href="#">Zona</a>
-                        </li>
-
-                        <li id="motivoCAC">
-                            <a href="#">CAC</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Generar Reporte Específico</a>
-                        </li>
-                       
-                    </ul>
-                </li>                                                                                    
-                 -->
                  <li id="motivoCAC">
                     <a href="#">Motivos de Visitas</a>
                 </li>
@@ -151,49 +121,6 @@
                 <li id="ejecutivoCAC">
                     <a href="#">Resultado de Encuestas</a>
                 </li>
-                <!-- <li class="active">
-                    <a href="#homeSubmenuEjecutivo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Evaluación de Ejecutivo</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenuEjecutivo">
-                        
-                        <li>
-                            <a href="#">Motivo de Visitas</a>
-                            Mostrar resultado de visitas, a qué vino cada cliente, registrar, por día y seleccionar rango
-                        </li> 
-                       
-                         <li>
-                            <a href="#">División</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Zona</a>
-                        </li>
-
-                        <li id="ejecutivoCAC">
-                            <a href="#">CAC</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Generar Reporte Específico</a>
-                        </li>
-                       
-                    </ul>
-                </li>   -->
-                
-                <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestión de Ejecutivo</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        
-                        <li>
-                            <a href="#">Alta</a>
-                        </li>
-                        <li>
-                            <a href="#">Baja</a>
-                        </li>
-                        <li>
-                            <a href="#">Modificación</a>
-                        </li>
-                    </ul>
-                </li> -->
                 <li id="ejecutivo">
                     <a href="#">Gestión de Ejecutivo</a>
                 </li>

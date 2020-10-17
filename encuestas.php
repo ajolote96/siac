@@ -153,6 +153,9 @@
                     <th>NOMBRE</th>
                     <th>INICIO</th>
                     <th>FIN</th>
+                    <th>CAC</th>
+                    <th>Zona</th>
+                    <th>Div</th>
                     <th>EDITAR</th>
                     <th>ELIMINAR</th>
                 </tr>
@@ -171,6 +174,9 @@
                                 <td><?= $objeto->nombre?></td>
                                 <td><?= $objeto->fechaInicio?></td>
                                 <td><?= $objeto->fechaFin?></td>
+                                <td><?= $objeto->cac?></td>
+                                <td><?= $objeto->zona?></td>
+                                <td><?= $objeto->division?></td>
                                 <td><a class="btn btn-warning" href="edicion-campaña.php?id=<?=$objeto->id?>">Editar</a></td>
                                 <td><a class="btn btn-danger" href="elimin-campaña.php?id=<?=$objeto->id?>">Eliminar</a></td>
                             </tr>
@@ -180,11 +186,6 @@
                     ?>
             </table>
             </div>
-            
-            
-            
-            
-            
             </div>
             </div>
         </div>

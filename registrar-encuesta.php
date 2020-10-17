@@ -27,7 +27,6 @@
             } else
                 return true;
         } // TERMINA EL CODIgO JS PARA VALIDAR LOS CAMPOS
-
         $(document).ready(function() {
             $("#boton").on('click', function() {
                 
@@ -157,6 +156,7 @@
                             <hr>
 
                             <form id="formulario" name="formulario" enctype="multipart/form-data">
+                               
                                <label>Campaña:</label>
                                <br>
                                 <select name="selec" id="campana" >

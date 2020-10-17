@@ -1,7 +1,5 @@
 <?php
-    
     require 'conexion.php';
-
     $salida = "";
     $query = "SELECT * FROM ejecutivo ORDER BY nombre";
 
