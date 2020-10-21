@@ -35,7 +35,7 @@
                     var CAMP = document.formulario.campaña.value;
                     var ini = document.formulario.inicio.value;
                     var final = document.formulario.fin.value;
-                    var site = $('#sitio option:selected').text();
+                    var site = $('#cac option:selected').text();
                     var zone = $('#zona option:selected').text();
                     var divition = $('#division option:selected').text();
                     $.ajax({
@@ -46,10 +46,10 @@
             
                         success: function(respuesta) {
                             if (respuesta == 0)
-                                alert('Registro incorrecto')
+                                alert('Seleccion invalida')
                             else {
-                                alert('Registro Completado')
-                                location.href="encuestas.php";
+                                alert('Seleccion Valida')
+                                location.href = "encuestas.php";
                             }
                         }
 
@@ -113,37 +113,27 @@
                     <!-- Sólo  jefes de cac, sólo podrá modificar lo de sus cacs  -->
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
-                        
                         <li id="usuarios">
                             <a href="usuarios.php">Usuarios</a>
                         </li>
-
                         <li>
                             <a href="#">Gestión de Sitios</a>
-                        </li>
-                       
+                        </li> 
                     </ul>
                 </li>               
-                
             </ul>            
-          
         </nav>
-        
         <!-- Page Content  -->
         <div id="content">
             <div class="header-content" style="display:flex; justify-content: space-between;">
                 <h2>Inicio</h2>
-
                 <a href="static/php/cerrar-sesion.php" style="padding: 10px;">Cerrar Sesión</a>
-
             </div>
-
             <div class="logo">
                 <a href="admin.php">
                     <img style="width: 20%; margin-left: 50px;" src="img/cfe-suministros.jpg" alt="LOGO">
                 </a>
             </div>
-
             <div id="contenido-principal">
                 <div class="container">
                     <div class="row">
@@ -171,24 +161,26 @@
                                         <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Division</h5>
-                                            <select name="selec" id="division" >
-                                            <option selected value="0">- Seleccione una opción -</option>
-                                            
-                                            <?php
-                                            require "php/conecta.php";
-                                            $sql = "SELECT DISTINCT division FROM sitios WHERE eliminado=1";
-                                            $res = mysqli_query($con, $sql);
-                                            $num = mysqli_num_rows($res);
 
-                                            for($i = $num; $objeto = $res->fetch_object() ; $i++)
-                                            {
-                                                ?>
-                                                    <option name="division" class="form-control" 
-                                                    value="<?=$objeto->division?>"><?= $objeto->division?></option> 
-                                                <?php
-                                            }
+                                            <?php
+                                                function load_division()
+                                                {
+                                                    $connect = mysqli_connect("localhost", "root", "", "ssbjalis_encuestas");
+                                                    $output='';
+                                                    $sql="SELECT * FROM tbl_division ORDER BY div_id";
+                                                    $result = mysqli_query($connect, $sql);
+                                                    while($row = mysqli_fetch_array($result))
+                                                    {
+                                                        $output .= '<option value="'.$row["div_id"].'">'.$row["div_name"].'</option>';
+                                                    }
+                                                    return $output;
+                                                }
                                             ?>
-                                            </select>
+
+                                            <p><select name="division" id="division">
+                                                <option value="">Selecciona División</option>
+                                                <?php echo load_division(); ?>
+                                            </select></p>
                                         </div>
                                         </div>
                                     </div>
@@ -197,23 +189,12 @@
                                         <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Zona</h5>
-                                            <select name="selec" id="zona" >
-                                            <option selected value="0">- Seleccione una opción -</option>
-                                            <?php
-                                            require "php/conecta.php";
-                                            $sql = "SELECT * FROM sitios WHERE eliminado=1";
-                                            $res = mysqli_query($con, $sql);
-                                            $num = mysqli_num_rows($res);
 
-                                            for($i = $num; $objeto = $res->fetch_object() ; $i++)
-                                            {
-                                                ?>
-                                                    <option name="zona" class="form-control" 
-                                                    value="<?=$objeto->zona?>"><?= $objeto->zona?></option>  
-                                                <?php
-                                            }
-                                            ?>
-                                            </select>
+                                            <p>
+                                            <select name="zona" id="zona">
+                                                <option value="">Selecciona Zona</option>
+                                            </select></p>
+
                                         </div>
                                         </div>
                                     </div>
@@ -222,24 +203,11 @@
                                         <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Centro de Atención</h5>
-                                            <select name="selec" id="sitio" >
-                                            <option selected value="0">- Seleccione una opción -</option>
                                             
-                                            <?php
-                                            require "php/conecta.php";
-                                            $sql = "SELECT * FROM sitios WHERE eliminado=1";
-                                            $res = mysqli_query($con, $sql);
-                                            $num = mysqli_num_rows($res);
-
-                                            for($i = $num; $objeto = $res->fetch_object() ; $i++)
-                                            {
-                                                ?>
-                                                    <option name="sitio" class="form-control" 
-                                                    value="<?=$objeto->nombre?>"><?= $objeto->nombre?></option> 
-                                                <?php
-                                            }
-                                            ?>
-                                            </select>
+                                            <p>
+                                            <select name="cac" id="cac">
+                                                <option value="">Selecciona cac</option>
+                                            </select></p>
                                         </div>
                                         </div>
                                     </div>
@@ -263,19 +231,54 @@
 
     <script>
         $(function(){
-            $("#division").change(function(){
-                $("#segunda").show("slow");
+ 
+
+            $( "#division" ).change(function() {
+                $( "#segunda" ).show( "slow", function() {
+                });
             });
-            $("#zona").change(function(){
-                $("#tercera").show("slow");
+
+            $( "#segunda" ).change(function() {
+                $( "#tercera" ).show( "slow", function() {
+                });
             });
+
             $("#division").change(function () { 
                var valorSeleccionado = $(this).children(":selected").text();
             });
 
+            $('#division').change(function(){
+            var division_id = $(this).val();
+            $.ajax({
+                url:"fetch_zona.php",
+                method:"POST",
+                data:{divisionId:division_id},
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#zona').html(data);
+                }
+                });
+            });
+
+            $('#zona').change(function(){
+            var zona_id = $(this).val();
+            $.ajax({
+                url:"fetch_cac.php",
+                method:"POST",
+                data:{zonaId:zona_id},
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#cac').html(data);
+                }
+                });
+            });
+
         });
-    
     </script>
+    <script>
+
 
 
 

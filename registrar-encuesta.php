@@ -171,7 +171,6 @@
                                 for($i = $num; $objeto = $res->fetch_object() ; $i++)
                                 {
                                     ?>
-                                    
                                         <option name="campana" class="form-control" 
                                         value="<?=$objeto->nombre?>"><?= $objeto->nombre?></option>  
                                     <?php
