@@ -165,7 +165,7 @@
                                             <?php
                                                 function load_division()
                                                 {
-                                                   require "conecta.php";
+                                                   require "../php/conecta.php";
                                                     
                                                     $output='';
                                                     $sql="SELECT * FROM tbl_division ORDER BY div_id";
