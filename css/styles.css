@@ -88,16 +88,21 @@ a{
 
 }
 
+
 .face-ico-principal{
-    max-height: 150px;
+    max-height: 100px;
     transition: all .3s ease-in-out;
+    border-radius: 20px;
+    margin-left: 30px;
+    box-shadow: 10px 10px 20px black;
 
 }
 
 .face-ico-principal:hover{
     cursor: pointer;
     background-color: rgb(196, 190, 190);
-    border-radius: 20px;
+    border-radius: 50px;
+    
 }
 
 .face-ico-principal:active{
@@ -126,6 +131,7 @@ a{
 }
 
 .ico-information{
+    font-weight: 700;
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;

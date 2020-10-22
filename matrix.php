@@ -27,9 +27,10 @@
             margin: 0;
             padding: 0;
             height: 1200px;
-            background-color: rgba(0, 40, 5, 0.6);
+            background-color: rgba(1,50,1,.5);
             
         }
+     
     </style>
 
 </head>
@@ -62,30 +63,31 @@
             
         <div class="container" id="faces-preguntas">
 
+            <center>
             <span style=" color:white; padding: 5px; text-transform: uppercase; background-color: #555; border-radius:5px;"><?php echo $_SESSION['cac']?></span>
-
+            </center>
             
             <h2 style="margin-bottom: 50px;">¿Cuál es el motivo de su visita?</h2>
 
             <div class="faces">            
 
-                <div>
-                    <img src="img/contrato1.png" alt="contrato" name="contrato" id="contrato" class="face-ico-principal">
+                <div class="matrix-iconos">
+                    <img src="img/contrato1.jpg" alt="contrato" name="contrato" id="contrato" class="face-ico-principal">
                     <p class="ico-information">Contrato</p>
                 </div>
 
-                <div>
-                    <img src="img/dinero1.png" alt="pago" name="pago" id="pago" class="face-ico-principal">
+                <div class="matrix-iconos">
+                    <img src="img/pago1.jpg" alt="pago" name="pago" id="pago" class="face-ico-principal">
                     <p class="ico-information">Pago</p>
                 </div>
 
-                <div>
-                    <img src="img/queja1.png" alt="queja" name="queja" id="queja" class="face-ico-principal">
+                <div class="matrix-iconos">
+                    <img src="img/queja1.jpg" alt="queja" name="queja" id="queja" class="face-ico-principal">
                     <p class="ico-information">Queja</p>
                 </div>
 
-                <div>
-                    <img src="img/informacion1.png" alt="informacion" name="informacion" id="informacion" class="face-ico-principal">
+                <div class="matrix-iconos">
+                    <img src="img/informacion1.jpg" alt="informacion" name="informacion" id="informacion" class="face-ico-principal">
                     <p class="ico-information">información</p class="ico-information">
                 </div>
 
