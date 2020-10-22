@@ -165,7 +165,7 @@
                                             <?php
                                                 function load_division()
                                                 {
-                                                   require "../php/conecta.php";
+                                                    $connect = mysqli_connect("localhost", "root", "", "ssbjalis_encuestas");
                                                     
                                                     $output='';
                                                     $sql="SELECT * FROM tbl_division ORDER BY div_id";
