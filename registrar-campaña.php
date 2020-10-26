@@ -163,13 +163,23 @@
                                             <h5 class="card-title">Division</h5>
 
                                             <?php
+                                                require "php/conecta.php";
+                                                $sql = "SELECT * FROM campañas WHERE eliminado=0";
+                                                $res = mysqli_query($con, $sql);
+                                                $num = mysqli_num_rows($res);
+
+
+
+
+
                                                 function load_division()
                                                 {
-                                                    $connect = mysqli_connect("localhost", "root", "", "ssbjalis_encuestas");
-                                                    
+                                                    //$connect = mysqli_connect("localhost", "root", "", "ssbjalis_encuestas");
+                                                    require "php/conecta.php";
                                                     $output='';
                                                     $sql="SELECT * FROM tbl_division ORDER BY div_id";
-                                                    $result = mysqli_query($connect, $sql);
+                                                    $result = mysqli_query($con, $sql);
+
                                                     while($row = mysqli_fetch_array($result))
                                                     {
                                                         $output .= '<option value="'.$row["div_id"].'">'.$row["div_name"].'</option>';
